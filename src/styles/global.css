@@ -190,13 +190,13 @@ nav a:hover, .back-link:hover { color: var(--maroon); }
   border: 1px solid rgba(255,255,255,.38);
   border-radius: 50%;
   position: absolute;
-  width: 68%;
+  width: 76%;
   z-index: 2;
 }
 .core-ring::after { background: var(--copper); border: 2px solid var(--maroon-dark); border-radius: 50%; content: ""; height: 10px; position: absolute; width: 10px; }
-.core-ring-politics { left: -5%; top: 8%; }
+.core-ring-politics { background: rgba(120,147,168,.08); left: -4%; top: 7%; }
 .core-ring-politics::after { right: 14%; top: 13%; }
-.core-ring-economics { bottom: 7%; right: -5%; }
+.core-ring-economics { background: rgba(197,148,92,.08); bottom: 6%; right: -4%; }
 .core-ring-economics::after { bottom: 14%; left: 13%; }
 
 .core-label {
@@ -206,8 +206,8 @@ nav a:hover, .back-link:hover { color: var(--maroon); }
   position: absolute;
   z-index: 3;
 }
-.core-label-politics { left: 11%; top: 20%; }
-.core-label-economics { bottom: 16%; right: 7%; }
+.core-label-politics { left: 8%; top: 18%; }
+.core-label-economics { bottom: 14%; right: 5%; }
 
 .secondary-concept {
   backdrop-filter: blur(3px);
@@ -221,14 +221,15 @@ nav a:hover, .back-link:hover { color: var(--maroon); }
   padding: 7px 10px;
   position: absolute;
   text-transform: uppercase;
+  transform: translateX(-50%);
   white-space: nowrap;
   z-index: 4;
 }
-.concept-policy { left: 51%; top: 25%; }
-.concept-relations { left: 35%; top: 38%; }
-.concept-affairs { left: 28%; top: 51%; }
-.concept-behavior { left: 43%; top: 64%; }
-.concept-institutions { left: 29%; top: 77%; }
+.concept-policy { left: 50%; top: 26%; }
+.concept-relations { left: 50%; top: 38%; }
+.concept-affairs { left: 50%; top: 50%; }
+.concept-behavior { left: 50%; top: 62%; }
+.concept-institutions { left: 50%; top: 74%; }
 
 .metrics {
   background: var(--ink);
@@ -384,18 +385,18 @@ footer p, .detail-footer p { font-size: .76rem; letter-spacing: .04em; margin: 0
   .meeting-details div { padding: 14px 0; }
   .meeting-details div + div { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
   .hero-art { min-height: 390px; }
-  .core-ring { width: 74%; }
-  .core-ring-politics { left: -17%; top: 4%; }
-  .core-ring-economics { bottom: 2%; right: -17%; }
+  .core-ring { width: 84%; }
+  .core-ring-politics { left: -9%; top: 1%; }
+  .core-ring-economics { bottom: 1%; right: -9%; }
   .core-label { font-size: 1.55rem; }
-  .core-label-politics { left: 7%; top: 16%; }
-  .core-label-economics { bottom: 10%; right: 5%; }
+  .core-label-politics { left: 5%; top: 12%; }
+  .core-label-economics { bottom: 8%; right: 4%; }
   .secondary-concept { font-size: .48rem; padding: 5px 7px; }
-  .concept-policy { left: 49%; top: 21%; }
-  .concept-relations { left: 34%; top: 35%; }
-  .concept-affairs { left: 26%; top: 49%; }
-  .concept-behavior { left: 39%; top: 63%; }
-  .concept-institutions { left: 25%; top: 77%; }
+  .concept-policy { left: 50%; top: 24%; }
+  .concept-relations { left: 50%; top: 36%; }
+  .concept-affairs { left: 50%; top: 48%; }
+  .concept-behavior { left: 50%; top: 60%; }
+  .concept-institutions { left: 50%; top: 72%; }
   .metrics { padding: 0; }
   .metrics div { padding: 25px 20px; }
   .metrics div:first-child { padding-left: 20px; }
