@@ -9,6 +9,12 @@ test("builds the homepage and every archived talk", async () => {
   const homepage = await readFile(new URL("index.html", root), "utf8");
   assert.match(homepage, /Political economy,/);
   assert.match(homepage, /Interdepartmental Political Economy Group/);
+  assert.match(homepage, /Share work in progress/);
+  assert.match(homepage, /Welcome visiting scholars/);
+  assert.match(homepage, /Read and think together/);
+  for (const organizer of ["Bill Clark", "Thomas Flaherty", "Ben Helms", "Jake Jares"]) {
+    assert.match(homepage, new RegExp(organizer));
+  }
   assert.match(homepage, /\/ipeg-seminar\/talks\/cody-tuttle-school-desegregation\//);
 
   const entries = await readdir(talks, { withFileTypes: true });
