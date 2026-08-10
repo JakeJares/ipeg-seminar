@@ -10,7 +10,8 @@ test("builds the homepage and every archived talk", async () => {
   assert.match(homepage, /Political economy,/);
   assert.match(homepage, /Interdepartmental Political Economy Group/);
   assert.match(homepage, /The Bush School of Government &amp; Public Service · Texas A&amp;M University/);
-  assert.match(homepage, /forum for Bush School faculty and graduate students/);
+  assert.match(homepage, /forum for Texas A&amp;M faculty and graduate students/);
+  assert.doesNotMatch(homepage, /Bush School faculty and graduate students/);
   assert.doesNotMatch(homepage, /forum for anyone interested/);
   assert.match(homepage, /<span class="hero-monogram">IPEG<\/span>/);
   assert.match(homepage, /core-label core-label-politics">Politics/);
