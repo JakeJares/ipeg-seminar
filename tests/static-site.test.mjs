@@ -57,6 +57,7 @@ test("builds the homepage and every archived talk", async () => {
   assert.match(addedTalk, /Diplomatic Capacity and International Cooperation/);
   assert.match(addedTalk, /October 22, 2025/);
   assert.match(addedTalk, /4:00 p\.m\./);
+  assert.match(addedTalk, /Allen 3072/);
 
   for (const entry of talkDirectories) {
     await access(new URL(`${entry.name}/index.html`, talks));

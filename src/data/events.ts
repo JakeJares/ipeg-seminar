@@ -205,7 +205,7 @@ export const events: EventRecord[] = [
     term: "Fall 2025",
     kind: "Internal",
     time: "4:00 p.m.",
-    location: "Location not recorded",
+    location: "Allen 3072",
     coauthors: ["Calvin Thrall"],
     speakerUrl: "https://mattmalis.github.io/",
     paperUrl: "https://mattmalis.github.io/files/pdf/Malis_Thrall_DiplomaticCapacity_Sep2025.pdf",
