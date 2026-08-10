@@ -170,10 +170,10 @@ nav a:hover, .back-link:hover { color: var(--maroon); }
   bottom: -0.14em;
   color: rgba(255,255,255,.07);
   font-family: var(--serif);
-  font-size: clamp(13rem, 25vw, 27rem);
+  font-size: clamp(10rem, 18vw, 19rem);
   font-weight: 700;
   left: -0.06em;
-  letter-spacing: -.12em;
+  letter-spacing: -.1em;
   line-height: .8;
   position: absolute;
   z-index: 1;
