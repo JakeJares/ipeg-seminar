@@ -185,25 +185,50 @@ nav a:hover, .back-link:hover { color: var(--maroon); }
   z-index: 1;
 }
 
-.orbit { border: 1px solid rgba(255,255,255,.35); border-radius: 50%; position: absolute; z-index: 2; }
-.orbit::after { background: var(--copper); border-radius: 50%; content: ""; height: 9px; position: absolute; width: 9px; }
-.orbit-one { height: 390px; left: 15%; top: 18%; width: 390px; }
-.orbit-one::after { right: 31px; top: 68px; }
-.orbit-two { height: 260px; left: 31%; top: 28%; width: 260px; }
-.orbit-two::after { bottom: 32px; left: 38px; }
-.orbit-three { height: 520px; left: -5%; top: 10%; width: 520px; }
-.orbit-three::after { right: 12px; top: 250px; }
+.core-ring {
+  aspect-ratio: 1;
+  border: 1px solid rgba(255,255,255,.38);
+  border-radius: 50%;
+  position: absolute;
+  width: 68%;
+  z-index: 2;
+}
+.core-ring::after { background: var(--copper); border: 2px solid var(--maroon-dark); border-radius: 50%; content: ""; height: 10px; position: absolute; width: 10px; }
+.core-ring-politics { left: -5%; top: 8%; }
+.core-ring-politics::after { right: 14%; top: 13%; }
+.core-ring-economics { bottom: 7%; right: -5%; }
+.core-ring-economics::after { bottom: 14%; left: 13%; }
 
-.discipline {
+.core-label {
   font-family: var(--serif);
-  font-size: 1rem;
+  font-size: clamp(1.8rem, 3.1vw, 3rem);
   font-style: italic;
   position: absolute;
   z-index: 3;
 }
-.discipline-politics { left: 27%; top: 24%; }
-.discipline-economics { right: 15%; top: 48%; }
-.discipline-policy { bottom: 21%; left: 29%; }
+.core-label-politics { left: 11%; top: 20%; }
+.core-label-economics { bottom: 16%; right: 7%; }
+
+.secondary-concept {
+  backdrop-filter: blur(3px);
+  background: rgba(64,17,31,.5);
+  border: 1px solid rgba(237,201,156,.52);
+  border-radius: 999px;
+  color: #f6e6d0;
+  font-size: .61rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  padding: 7px 10px;
+  position: absolute;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 4;
+}
+.concept-policy { left: 51%; top: 25%; }
+.concept-relations { left: 35%; top: 38%; }
+.concept-affairs { left: 28%; top: 51%; }
+.concept-behavior { left: 43%; top: 64%; }
+.concept-institutions { left: 29%; top: 77%; }
 
 .metrics {
   background: var(--ink);
@@ -359,9 +384,18 @@ footer p, .detail-footer p { font-size: .76rem; letter-spacing: .04em; margin: 0
   .meeting-details div { padding: 14px 0; }
   .meeting-details div + div { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
   .hero-art { min-height: 390px; }
-  .orbit-one { height: 280px; width: 280px; }
-  .orbit-two { height: 180px; width: 180px; }
-  .orbit-three { height: 360px; width: 360px; }
+  .core-ring { width: 74%; }
+  .core-ring-politics { left: -17%; top: 4%; }
+  .core-ring-economics { bottom: 2%; right: -17%; }
+  .core-label { font-size: 1.55rem; }
+  .core-label-politics { left: 7%; top: 16%; }
+  .core-label-economics { bottom: 10%; right: 5%; }
+  .secondary-concept { font-size: .48rem; padding: 5px 7px; }
+  .concept-policy { left: 49%; top: 21%; }
+  .concept-relations { left: 34%; top: 35%; }
+  .concept-affairs { left: 26%; top: 49%; }
+  .concept-behavior { left: 39%; top: 63%; }
+  .concept-institutions { left: 25%; top: 77%; }
   .metrics { padding: 0; }
   .metrics div { padding: 25px 20px; }
   .metrics div:first-child { padding-left: 20px; }
