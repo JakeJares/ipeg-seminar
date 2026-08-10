@@ -10,6 +10,8 @@ test("builds the homepage and every archived talk", async () => {
   assert.match(homepage, /Political economy,/);
   assert.match(homepage, /Interdepartmental Political Economy Group/);
   assert.match(homepage, /<span class="hero-monogram">IPEG<\/span>/);
+  assert.match(homepage, /Thursdays · 12:30–2:00 p\.m\./);
+  assert.match(homepage, /<dt>Location<\/dt>\s*<dd>TBD<\/dd>/);
   assert.match(homepage, /Share work in progress/);
   assert.match(homepage, /Welcome visiting scholars/);
   assert.match(homepage, /Read and think together/);
