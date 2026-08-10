@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { events, type EventRecord } from "../../data/events";
+
+export function getStaticPaths() {
+  return events.map((event) => ({
+    params: { slug: event.slug },
+    props: { event },
+  }));
+}
+
+interface Props {
+  event: EventRecord;
+}
+
+const { event } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={event.speaker} description={event.title}>
+  <main class="talk-page">
+    <header class="site-header talk-header">
+      <a class="wordmark" href={base} aria-label="IPEG home">
+        <span class="wordmark-mark">IPEG</span>
+        <span class="wordmark-name">
+          Interdepartmental
+          <br />
+          Political Economy Group
+        </span>
+      </a>
+      <a class="back-link" href={`${base}#program`}>← All talks</a>
+    </header>
+
+    <article class="talk-detail">
+      <div class="talk-detail-meta">
+        <p class="eyebrow">{event.term} · {event.kind} speaker</p>
+        <dl>
+          <div><dt>Date</dt><dd>{event.dateLabel}</dd></div>
+          <div><dt>Time</dt><dd>{event.time}</dd></div>
+          <div><dt>Location</dt><dd>{event.location}</dd></div>
+        </dl>
+      </div>
+      <div class="talk-detail-main">
+        <p class="detail-speaker">{event.speaker}</p>
+        <p class="detail-affiliation">{event.affiliation}</p>
+        <h1>{event.title}</h1>
+
+        {event.coauthors && (
+          <div class="detail-block">
+            <h2>With</h2>
+            <p>{event.coauthors.join(", ")}</p>
+          </div>
+        )}
+
+        <div class="detail-block abstract-block">
+          <h2>Abstract</h2>
+          <p>{event.abstract ?? "Abstract not available in the seminar archive."}</p>
+        </div>
+
+        {(event.speakerUrl || event.paperUrl) && (
+          <div class="detail-links" aria-label="Related links">
+            {event.speakerUrl && <a href={event.speakerUrl}>Speaker website ↗</a>}
+            {event.paperUrl && <a href={event.paperUrl}>Paper ↗</a>}
+          </div>
+        )}
+      </div>
+    </article>
+
+    <footer class="detail-footer">
+      <a href={base}>IPEG</a>
+      <p>An independently maintained faculty seminar site.</p>
+    </footer>
+  </main>
+</BaseLayout>

@@ -1,0 +1,179 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { events } from "../data/events";
+
+const springEvents = events.filter((event) => event.term === "Spring 2026");
+const fallEvents = events.filter((event) => event.term === "Fall 2025");
+const base = import.meta.env.BASE_URL;
+const talkHref = (slug: string) => `${base}talks/${slug}/`;
+---
+
+<BaseLayout>
+  <main>
+    <header class="site-header">
+      <a class="wordmark" href={base} aria-label="IPEG home">
+        <span class="wordmark-mark">IPEG</span>
+        <span class="wordmark-name">
+          Interdepartmental
+          <br />
+          Political Economy Group
+        </span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#program">Past talks</a>
+        <a href="#next">2026–27</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Texas A&amp;M University · College Station</p>
+        <h1 id="hero-title">
+          Political economy,
+          <br />
+          <em>across disciplines.</em>
+        </h1>
+        <p class="hero-intro">
+          IPEG is a faculty-organized seminar community for research at the
+          intersection of politics and economics—bringing students, faculty,
+          and visiting scholars into the same room.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#program">Explore recent talks</a>
+          <a class="button button-quiet" href="#about">About the group</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="orbit orbit-three"></div>
+        <span class="discipline discipline-politics">Politics</span>
+        <span class="discipline discipline-economics">Economics</span>
+        <span class="discipline discipline-policy">Policy</span>
+        <span class="hero-monogram">IPE</span>
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="Program at a glance">
+      <div>
+        <strong>13</strong>
+        <span>talks since Fall 2025</span>
+      </div>
+      <div>
+        <strong>8</strong>
+        <span>visiting speakers</span>
+      </div>
+      <div>
+        <strong>7</strong>
+        <span>visiting institutions</span>
+      </div>
+      <div>
+        <strong>1</strong>
+        <span>shared research community</span>
+      </div>
+    </section>
+
+    <section class="next-season" id="next" aria-labelledby="next-title">
+      <div>
+        <p class="eyebrow light">Coming next</p>
+        <h2 id="next-title">The 2026–27 program is taking shape.</h2>
+      </div>
+      <p>
+        A new slate of internal and visiting speakers is in development.
+        Confirmed dates and presentation details will appear here as the
+        program is finalized.
+      </p>
+    </section>
+
+    <section class="program section-shell" id="program" aria-labelledby="program-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Recent program</p>
+          <h2 id="program-title">Spring 2026</h2>
+        </div>
+        <p>
+          Twelve conversations spanning trade, conflict, development,
+          institutions, inequality, and political behavior.
+        </p>
+      </div>
+
+      <div class="talk-grid">
+        {springEvents.map((event, index) => (
+          <article class:list={["talk-card", { featured: index < 3 }]}>
+            <div class="talk-meta">
+              <time datetime={event.date}>{event.dateLabel}</time>
+              <span>{event.kind}</span>
+            </div>
+            <div class="talk-card-body">
+              <p class="speaker">{event.speaker}</p>
+              <p class="affiliation">{event.affiliation}</p>
+              <h3>{event.title}</h3>
+            </div>
+            <a class="talk-link" href={talkHref(event.slug)}>
+              View talk details <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="archive section-shell" aria-labelledby="archive-title">
+      <div class="section-heading compact">
+        <div>
+          <p class="eyebrow">The archive begins</p>
+          <h2 id="archive-title">Fall 2025</h2>
+        </div>
+      </div>
+      {fallEvents.map((event) => (
+        <article class="archive-row">
+          <time datetime={event.date}>{event.dateLabel}</time>
+          <div>
+            <p class="speaker">{event.speaker}</p>
+            <p>{event.affiliation}</p>
+          </div>
+          <h3>{event.title}</h3>
+          <a href={talkHref(event.slug)} aria-label={`View ${event.speaker}'s talk`}>
+            View <span aria-hidden="true">↗</span>
+          </a>
+        </article>
+      ))}
+    </section>
+
+    <section class="about section-shell" id="about" aria-labelledby="about-title">
+      <div class="about-title">
+        <p class="eyebrow">About IPEG</p>
+        <h2 id="about-title">A room for work in progress.</h2>
+      </div>
+      <div class="about-copy">
+        <p class="lede">
+          The Interdepartmental Political Economy Group connects researchers
+          working across disciplinary and departmental lines at Texas A&amp;M.
+        </p>
+        <div class="about-columns">
+          <p>
+            Seminars feature a mix of internal presenters and invited
+            scholars. The format centers serious engagement with new research,
+            generous discussion, and intellectual exchange among faculty and
+            graduate students.
+          </p>
+          <p>
+            Spring 2026 meetings were held Thursdays in Allen 3072. IPEG is
+            independently organized by faculty and this site is maintained by
+            the seminar group.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <a class="footer-mark" href={base}>IPEG</a>
+      <p>
+        Interdepartmental Political Economy Group
+        <br />
+        College Station, Texas
+      </p>
+      <p class="footer-note">An independently maintained faculty seminar site.</p>
+    </footer>
+  </main>
+</BaseLayout>
