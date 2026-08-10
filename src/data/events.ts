@@ -195,6 +195,22 @@ export const events: EventRecord[] = [
     paperUrl: "https://pablopinto.com/wp-content/uploads/GPP-Trade-Protection-Nov-2024.pdf",
     abstract: `Congressional districts are key players in determining trade protection but are absent from many established political-economy models. The paper characterizes district-level demand for protection and models national tariffs as an aggregation of local preferences, with exporter interests serving as a countervailing force against protectionism.`,
   },
+  {
+    slug: "matt-malis-diplomatic-capacity",
+    speaker: "Matt Malis",
+    affiliation: "Texas A&M University · Political Science",
+    title: "Diplomatic Capacity and International Cooperation",
+    date: "2025-10-22",
+    dateLabel: "October 22, 2025",
+    term: "Fall 2025",
+    kind: "Internal",
+    time: "4:00 p.m.",
+    location: "Location not recorded",
+    coauthors: ["Calvin Thrall"],
+    speakerUrl: "https://mattmalis.github.io/",
+    paperUrl: "https://mattmalis.github.io/files/pdf/Malis_Thrall_DiplomaticCapacity_Sep2025.pdf",
+    abstract: `This project examines when the capacity and expertise of diplomatic bureaucracies shape bilateral cooperation. It argues that their influence grows when political leaders face greater demands on their time and attention. Using embassy personnel histories and more than 5,000 U.S. bilateral executive agreements from 1989 to 2016, the analysis links higher-capacity embassies to increased cooperation during presidential reelection periods.`,
+  },
 ];
 
 export function getEvent(slug: string) {
