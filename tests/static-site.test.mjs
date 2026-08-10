@@ -31,7 +31,7 @@ test("builds the homepage and every archived talk", async () => {
   assert.match(homepage, /Share work in progress/);
   assert.match(homepage, /Welcome visiting scholars/);
   assert.match(homepage, /Read and think together/);
-  for (const organizer of ["Bill Clark", "Thomas Flaherty", "Ben Helms", "Jake Jares"]) {
+  for (const organizer of ["William Roberts Clark", "Thomas Flaherty", "Ben Helms", "Jake Jares"]) {
     assert.match(homepage, new RegExp(organizer));
   }
   for (const url of [
@@ -42,7 +42,10 @@ test("builds the homepage and every archived talk", async () => {
   ]) {
     assert.match(homepage, new RegExp(url.replaceAll(".", "\\.")));
   }
-  assert.match(homepage, /Charles Puryear Professor of Liberal Arts/);
+  assert.match(homepage, /John H\. Lindsey ’44 Chair,/);
+  assert.match(homepage, /Bush School of Government and Public Service/);
+  assert.match(homepage, /Professor of Political Science/);
+  assert.doesNotMatch(homepage, /Charles Puryear Professor of Liberal Arts/);
   assert.match(homepage, /Department of International Affairs/);
   assert.match(homepage, /\/ipeg-seminar\/talks\/cody-tuttle-school-desegregation\//);
 

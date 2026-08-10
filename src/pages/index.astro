@@ -8,27 +8,27 @@ const base = import.meta.env.BASE_URL;
 const talkHref = (slug: string) => `${base}talks/${slug}/`;
 const organizers = [
   {
-    name: "Bill Clark",
-    title: "Charles Puryear Professor of Liberal Arts",
-    department: "Department of Political Science",
+    name: "William Roberts Clark",
+    details: [
+      "John H. Lindsey ’44 Chair,",
+      "Bush School of Government and Public Service",
+      "Professor of Political Science",
+    ],
     url: "https://bush.tamu.edu/faculty/wclark/",
   },
   {
     name: "Thomas Flaherty",
-    title: "Assistant Professor",
-    department: "Department of Political Science",
+    details: ["Assistant Professor", "Department of Political Science"],
     url: "https://www.thomasflaherty.com/",
   },
   {
     name: "Ben Helms",
-    title: "Assistant Professor",
-    department: "Department of International Affairs",
+    details: ["Assistant Professor", "Department of International Affairs"],
     url: "https://www.benjaminhelms.com/",
   },
   {
     name: "Jake Jares",
-    title: "Assistant Professor",
-    department: "Department of Political Science",
+    details: ["Assistant Professor", "Department of Political Science"],
     url: "https://jakejares.com/",
   },
 ];
@@ -232,8 +232,10 @@ const organizers = [
                   <span class="organizer-name">
                     {organizer.name} <span aria-hidden="true">↗</span>
                   </span>
-                  <span class="organizer-title">{organizer.title}</span>
-                  <span class="organizer-department">{organizer.department}</span>
+                  <span class="organizer-title">{organizer.details[0]}</span>
+                  {organizer.details.slice(1).map((detail) => (
+                    <span class="organizer-department">{detail}</span>
+                  ))}
                 </a>
               </li>
             ))}
