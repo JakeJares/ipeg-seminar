@@ -15,6 +15,16 @@ test("builds the homepage and every archived talk", async () => {
   for (const organizer of ["Bill Clark", "Thomas Flaherty", "Ben Helms", "Jake Jares"]) {
     assert.match(homepage, new RegExp(organizer));
   }
+  for (const url of [
+    "https://bush.tamu.edu/faculty/wclark/",
+    "https://www.thomasflaherty.com/",
+    "https://www.benjaminhelms.com/",
+    "https://jakejares.com/",
+  ]) {
+    assert.match(homepage, new RegExp(url.replaceAll(".", "\\.")));
+  }
+  assert.match(homepage, /Charles Puryear Professor of Liberal Arts/);
+  assert.match(homepage, /Department of International Affairs/);
   assert.match(homepage, /\/ipeg-seminar\/talks\/cody-tuttle-school-desegregation\//);
 
   const entries = await readdir(talks, { withFileTypes: true });
