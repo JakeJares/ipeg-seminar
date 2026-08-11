@@ -13,21 +13,13 @@ test("builds the homepage and every archived talk", async () => {
   assert.match(homepage, /forum for Texas A&amp;M faculty and graduate students/);
   assert.doesNotMatch(homepage, /Bush School faculty and graduate students/);
   assert.doesNotMatch(homepage, /forum for anyone interested/);
-  assert.match(homepage, /<span class="hero-monogram">IPEG<\/span>/);
-  assert.match(homepage, /core-label core-label-politics">Politics/);
-  assert.match(homepage, /core-label core-label-economics">Economics/);
-  for (const concept of [
-    "Public Policy",
-    "International Relations",
-    "International Affairs",
-    "Political Behavior",
-    "Political Institutions",
-  ]) {
-    assert.match(homepage, new RegExp(concept));
-  }
-  assert.doesNotMatch(homepage, /discipline-policy/);
+  assert.doesNotMatch(homepage, /hero-art|hero-monogram|core-ring|secondary-concept/);
   assert.match(homepage, /Thursdays · 12:30–2:00 p\.m\./);
   assert.match(homepage, /<dt>Location<\/dt>\s*<dd>TBD<\/dd>/);
+  assert.match(homepage, /There is room here for work in progress/);
+  assert.match(homepage, /Earlier program/);
+  assert.doesNotMatch(homepage, /The archive begins|A room for work in progress\./);
+  assert.ok(homepage.indexOf('id="about"') < homepage.indexOf('class="metrics"'));
   assert.match(homepage, /Share work in progress/);
   assert.match(homepage, /Welcome visiting scholars/);
   assert.match(homepage, /Read and think together/);

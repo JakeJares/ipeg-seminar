@@ -47,8 +47,8 @@ const organizers = [
       </a>
       <nav aria-label="Primary navigation">
         <a href="#about">About</a>
-        <a href="#program">Past talks</a>
         <a href="#next">2026–27</a>
+        <a href="#program">Past talks</a>
       </nav>
     </header>
 
@@ -76,119 +76,22 @@ const organizers = [
           </div>
         </dl>
         <div class="hero-actions">
-          <a class="button button-primary" href="#program">Explore recent talks</a>
-          <a class="button button-quiet" href="#about">About the group</a>
+          <a class="button button-primary" href="#about">How IPEG works</a>
+          <a class="button button-quiet" href="#program">Explore recent talks</a>
         </div>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="core-ring core-ring-politics"></div>
-        <div class="core-ring core-ring-economics"></div>
-        <span class="core-label core-label-politics">Politics</span>
-        <span class="core-label core-label-economics">Economics</span>
-        <span class="secondary-concept concept-policy">Public Policy</span>
-        <span class="secondary-concept concept-relations">International Relations</span>
-        <span class="secondary-concept concept-affairs">International Affairs</span>
-        <span class="secondary-concept concept-behavior">Political Behavior</span>
-        <span class="secondary-concept concept-institutions">Political Institutions</span>
-        <span class="hero-monogram">IPEG</span>
-      </div>
     </section>
 
-    <section class="metrics" aria-label="Program at a glance">
-      <div>
-        <strong>14</strong>
-        <span>talks since Fall 2025</span>
-      </div>
-      <div>
-        <strong>8</strong>
-        <span>visiting speakers</span>
-      </div>
-      <div>
-        <strong>7</strong>
-        <span>visiting institutions</span>
-      </div>
-      <div>
-        <strong>1</strong>
-        <span>shared research community</span>
-      </div>
-    </section>
-
-    <section class="next-season" id="next" aria-labelledby="next-title">
-      <div>
-        <p class="eyebrow light">Coming next</p>
-        <h2 id="next-title">The 2026–27 program is taking shape.</h2>
-      </div>
-      <p>
-        A new slate of internal and visiting speakers is in development.
-        Confirmed dates and presentation details will appear here as the
-        program is finalized.
-      </p>
-    </section>
-
-    <section class="program section-shell" id="program" aria-labelledby="program-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Recent program</p>
-          <h2 id="program-title">Spring 2026</h2>
-        </div>
-        <p>
-          Twelve conversations spanning trade, conflict, development,
-          institutions, inequality, and political behavior.
-        </p>
-      </div>
-
-      <div class="talk-grid">
-        {springEvents.map((event, index) => (
-          <article class:list={["talk-card", { featured: index < 3 }]}>
-            <div class="talk-meta">
-              <time datetime={event.date}>{event.dateLabel}</time>
-              <span>{event.kind}</span>
-            </div>
-            <div class="talk-card-body">
-              <p class="speaker">{event.speaker}</p>
-              <p class="affiliation">{event.affiliation}</p>
-              <h3>{event.title}</h3>
-            </div>
-            <a class="talk-link" href={talkHref(event.slug)}>
-              View talk details <span aria-hidden="true">↗</span>
-            </a>
-          </article>
-        ))}
-      </div>
-    </section>
-
-    <section class="archive section-shell" aria-labelledby="archive-title">
-      <div class="section-heading compact">
-        <div>
-          <p class="eyebrow">The archive begins</p>
-          <h2 id="archive-title">Fall 2025</h2>
-        </div>
-      </div>
-      {fallEvents.map((event) => (
-        <article class="archive-row">
-          <time datetime={event.date}>{event.dateLabel}</time>
-          <div>
-            <p class="speaker">{event.speaker}</p>
-            <p>{event.affiliation}</p>
-          </div>
-          <h3>{event.title}</h3>
-          <a href={talkHref(event.slug)} aria-label={`View ${event.speaker}'s talk`}>
-            View <span aria-hidden="true">↗</span>
-          </a>
-        </article>
-      ))}
-    </section>
-
-    <section class="about section-shell" id="about" aria-labelledby="about-title">
+    <section class="about section-shell" id="about" aria-label="About IPEG">
       <div class="about-title">
         <p class="eyebrow">About IPEG</p>
-        <h2 id="about-title">A room for work in progress.</h2>
       </div>
       <div class="about-copy">
         <p class="lede">
-          The Interdepartmental Political Economy Group is an interdisciplinary
-          forum for Texas A&amp;M faculty and graduate students who study
-          political economy, broadly defined.
+          IPEG is an interdisciplinary forum for Texas A&amp;M faculty and
+          graduate students who study political economy, broadly defined.
+          There is room here for work in progress, visiting speakers, and
+          reading and discussion.
         </p>
         <div class="mission-list" aria-label="How IPEG works">
           <article>
@@ -246,6 +149,91 @@ const organizers = [
           </p>
         </div>
       </div>
+    </section>
+
+    <section class="metrics" aria-label="Program at a glance">
+      <div>
+        <strong>14</strong>
+        <span>talks since Fall 2025</span>
+      </div>
+      <div>
+        <strong>8</strong>
+        <span>visiting speakers</span>
+      </div>
+      <div>
+        <strong>7</strong>
+        <span>visiting institutions</span>
+      </div>
+      <div>
+        <strong>3</strong>
+        <span>meeting formats</span>
+      </div>
+    </section>
+
+    <section class="next-season" id="next" aria-labelledby="next-title">
+      <div>
+        <p class="eyebrow light">Coming next</p>
+        <h2 id="next-title">The 2026–27 program is taking shape.</h2>
+      </div>
+      <p>
+        A new slate of internal and visiting speakers is in development.
+        Confirmed dates and presentation details will appear here as the
+        program is finalized.
+      </p>
+    </section>
+
+    <section class="program section-shell" id="program" aria-labelledby="program-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Recent program</p>
+          <h2 id="program-title">Spring 2026</h2>
+        </div>
+        <p>
+          Twelve conversations spanning trade, conflict, development,
+          institutions, inequality, and political behavior.
+        </p>
+      </div>
+
+      <div class="talk-grid">
+        {springEvents.map((event, index) => (
+          <article class:list={["talk-card", { featured: index < 3 }]}>
+            <div class="talk-meta">
+              <time datetime={event.date}>{event.dateLabel}</time>
+              <span>{event.kind}</span>
+            </div>
+            <div class="talk-card-body">
+              <p class="speaker">{event.speaker}</p>
+              <p class="affiliation">{event.affiliation}</p>
+              <h3>{event.title}</h3>
+            </div>
+            <a class="talk-link" href={talkHref(event.slug)}>
+              View talk details <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="archive section-shell" aria-labelledby="archive-title">
+      <div class="section-heading compact">
+        <div>
+          <p class="eyebrow">Earlier program</p>
+          <h2 id="archive-title">Fall 2025</h2>
+        </div>
+      </div>
+      {fallEvents.map((event) => (
+        <article class="archive-row">
+          <time datetime={event.date}>{event.dateLabel}</time>
+          <div>
+            <p class="speaker">{event.speaker}</p>
+            <p>{event.affiliation}</p>
+          </div>
+          <h3>{event.title}</h3>
+          <a href={talkHref(event.slug)} aria-label={`View ${event.speaker}'s talk`}>
+            View <span aria-hidden="true">↗</span>
+          </a>
+        </article>
+      ))}
     </section>
 
     <footer>
