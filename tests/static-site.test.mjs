@@ -14,15 +14,15 @@ test("builds the homepage and every archived talk", async () => {
   assert.match(homepage, /The Bush School of Government &amp; Public Service · Texas A&amp;M University/);
   assert.match(homepage, /class="hero-lower"/);
   assert.match(homepage, /class="hero-practical"/);
-  assert.match(homepage, /bringing faculty,\s*graduate students, and visiting researchers/);
-  assert.doesNotMatch(homepage, /bringing graduate\s*students, faculty/);
+  assert.match(homepage, /IPEC brings together Texas A&amp;M faculty, graduate students, and\s*visiting researchers from across disciplines to share and discuss\s*research on political economy\./);
+  assert.doesNotMatch(homepage, /broadly defined—bringing/);
   assert.match(homepage, /forum for Texas A&amp;M faculty and graduate students/);
   assert.doesNotMatch(homepage, /Bush School faculty and graduate students/);
   assert.doesNotMatch(homepage, /forum for anyone interested/);
   assert.doesNotMatch(homepage, /hero-art|hero-monogram|core-ring|secondary-concept/);
   assert.match(homepage, /Thursdays · 12:30–2:00 p\.m\./);
   assert.ok(weeklyMeetingDetails);
-  assert.match(weeklyMeetingDetails, /<dt>Location<\/dt>\s*<dd>Announced by meeting<\/dd>/);
+  assert.match(weeklyMeetingDetails, /<dt>Location<\/dt>\s*<dd>Usually Allen 3025; see the schedule below<\/dd>/);
   assert.doesNotMatch(weeklyMeetingDetails, /Allen 3125/);
   assert.match(homepage, /There is room here for work in progress/);
   assert.match(homepage, /Earlier program/);
