@@ -1,6 +1,6 @@
-# IPEG seminar website
+# IPEC seminar website
 
-Public website for the Interdepartmental Political Economy Group at Texas A&M University.
+Public website for the Interdepartmental Political Economy Community at Texas A&M University.
 
 ## Local development
 
@@ -11,4 +11,4 @@ npm run dev
 
 ## Publishing
 
-Pushes to `main` are deployed automatically to GitHub Pages. The site is fully static and can later be moved to a custom domain or an official university host without changing the content model.
+Pushes to `main` are deployed automatically to GitHub Pages at <https://ipecseminar.org/>. The site is fully static and can later be moved to an official university host without changing the content model.

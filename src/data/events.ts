@@ -5,8 +5,8 @@ export type EventRecord = {
   title: string;
   date: string;
   dateLabel: string;
-  term: "Fall 2025" | "Spring 2026";
-  kind: "Visiting" | "Internal";
+  term: "Fall 2025" | "Spring 2026" | "Fall 2026";
+  kind: "Visiting" | "Internal" | "Community";
   time: string;
   location: string;
   abstract?: string;
@@ -16,6 +16,19 @@ export type EventRecord = {
 };
 
 export const events: EventRecord[] = [
+  {
+    slug: "fall-2026-welcome-meeting",
+    speaker: "IPEC co-organizers",
+    affiliation: "Texas A&M University",
+    title: "Fall 2026 Welcome Meeting",
+    date: "2026-08-27",
+    dateLabel: "August 27, 2026",
+    term: "Fall 2026",
+    kind: "Community",
+    time: "12:30–1:30 p.m.",
+    location: "Allen 3125",
+    abstract: `An informal opening meeting over lunch for faculty and graduate students interested in political economy. The co-organizers will introduce IPEC's three meeting formats, preview the academic-year program, and invite questions and ideas from the community.`,
+  },
   {
     slug: "cody-tuttle-school-desegregation",
     speaker: "Cody Tuttle",

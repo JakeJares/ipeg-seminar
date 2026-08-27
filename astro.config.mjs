@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://jakejares.github.io",
-  base: "/ipeg-seminar",
+  site: "https://ipecseminar.org",
+  base: "/",
   trailingSlash: "always",
 });

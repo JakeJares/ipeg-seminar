@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { events } from "../data/events";
 
+const currentEvents = events.filter((event) => event.term === "Fall 2026");
 const springEvents = events.filter((event) => event.term === "Spring 2026");
 const fallEvents = events.filter((event) => event.term === "Fall 2025");
 const base = import.meta.env.BASE_URL;
@@ -37,17 +38,17 @@ const organizers = [
 <BaseLayout>
   <main>
     <header class="site-header">
-      <a class="wordmark" href={base} aria-label="IPEG home">
-        <span class="wordmark-mark">IPEG</span>
+      <a class="wordmark" href={base} aria-label="IPEC home">
+        <span class="wordmark-mark">IPEC</span>
         <span class="wordmark-name">
           Interdepartmental
           <br />
-          Political Economy Group
+          Political Economy Community
         </span>
       </a>
       <nav aria-label="Primary navigation">
         <a href="#about">About</a>
-        <a href="#next">2026–27</a>
+        <a href="#next">Fall 2026</a>
         <a href="#program">Past talks</a>
       </nav>
     </header>
@@ -62,7 +63,7 @@ const organizers = [
         </h1>
         <div class="hero-lower">
           <p class="hero-intro">
-            IPEG is an open, interdisciplinary community of Texas A&amp;M scholars
+            IPEC is an open, interdisciplinary community of Texas A&amp;M scholars
             studying political economy, broadly defined—bringing faculty,
             graduate students, and visiting researchers into the same room.
           </p>
@@ -74,11 +75,11 @@ const organizers = [
               </div>
               <div>
                 <dt>Location</dt>
-                <dd>TBD</dd>
+                <dd>Announced by meeting</dd>
               </div>
             </dl>
             <div class="hero-actions">
-              <a class="button button-primary" href="#about">How IPEG works</a>
+              <a class="button button-primary" href="#about">How IPEC works</a>
               <a class="button button-quiet" href="#program">Explore recent talks</a>
             </div>
           </div>
@@ -86,18 +87,18 @@ const organizers = [
       </div>
     </section>
 
-    <section class="about section-shell" id="about" aria-label="About IPEG">
+    <section class="about section-shell" id="about" aria-label="About IPEC">
       <div class="about-title">
-        <p class="eyebrow">About IPEG</p>
+        <p class="eyebrow">About IPEC</p>
       </div>
       <div class="about-copy">
         <p class="lede">
-          IPEG is an interdisciplinary forum for Texas A&amp;M faculty and
+          IPEC is an interdisciplinary forum for Texas A&amp;M faculty and
           graduate students who study political economy, broadly defined.
           There is room here for work in progress, visiting speakers, and
           reading and discussion.
         </p>
-        <div class="mission-list" aria-label="How IPEG works">
+        <div class="mission-list" aria-label="How IPEC works">
           <article>
             <span>01</span>
             <div>
@@ -132,7 +133,7 @@ const organizers = [
 
         <div class="organizers">
           <p class="eyebrow">Co-organizers</p>
-          <ul aria-label="IPEG co-organizers">
+          <ul aria-label="IPEC co-organizers">
             {organizers.map((organizer) => (
               <li>
                 <a href={organizer.url}>
@@ -148,7 +149,7 @@ const organizers = [
             ))}
           </ul>
           <p class="organizers-note">
-            IPEG is independently organized by faculty at Texas A&amp;M’s Bush
+            IPEC is independently organized by faculty at Texas A&amp;M’s Bush
             School of Government and Public Service.
           </p>
         </div>
@@ -174,16 +175,36 @@ const organizers = [
       </div>
     </section>
 
-    <section class="next-season" id="next" aria-labelledby="next-title">
-      <div>
-        <p class="eyebrow light">Coming next</p>
-        <h2 id="next-title">The 2026–27 program is taking shape.</h2>
+    <section class="program section-shell current-program" id="next" aria-labelledby="next-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">This semester</p>
+          <h2 id="next-title">Fall 2026</h2>
+        </div>
+        <p>
+          Confirmed meetings appear here as the internal, visiting-speaker,
+          and reading-group program takes shape.
+        </p>
       </div>
-      <p>
-        A new slate of internal and visiting speakers is in development.
-        Confirmed dates and presentation details will appear here as the
-        program is finalized.
-      </p>
+
+      <div class="talk-grid">
+        {currentEvents.map((event) => (
+          <article class="talk-card featured">
+            <div class="talk-meta">
+              <time datetime={event.date}>{event.dateLabel}</time>
+              <span>{event.kind}</span>
+            </div>
+            <div class="talk-card-body">
+              <p class="speaker">{event.speaker}</p>
+              <p class="affiliation">{event.affiliation}</p>
+              <h3>{event.title}</h3>
+            </div>
+            <a class="talk-link" href={talkHref(event.slug)}>
+              View meeting details <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        ))}
+      </div>
     </section>
 
     <section class="program section-shell" id="program" aria-labelledby="program-title">
@@ -241,9 +262,9 @@ const organizers = [
     </section>
 
     <footer>
-      <a class="footer-mark" href={base}>IPEG</a>
+      <a class="footer-mark" href={base}>IPEC</a>
       <p>
-        Interdepartmental Political Economy Group
+        Interdepartmental Political Economy Community
         <br />
         College Station, Texas
       </p>

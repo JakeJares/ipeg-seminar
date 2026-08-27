@@ -195,6 +195,7 @@ nav a:hover, .back-link:hover { color: var(--maroon); }
 .section-heading > p { font-family: var(--serif); font-size: 1.13rem; margin: 0; }
 
 .talk-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+.current-program .talk-grid { grid-template-columns: minmax(0, 620px); }
 
 .talk-card {
   background: #e8e1d6;
@@ -293,6 +294,7 @@ footer p, .detail-footer p { font-size: .76rem; letter-spacing: .04em; margin: 0
   .next-season { gap: 36px; grid-template-columns: 1fr; margin: 42px 24px 0; }
   .section-heading { gap: 32px; grid-template-columns: 1fr; }
   .talk-grid { grid-template-columns: 1fr 1fr; }
+  .current-program .talk-grid { grid-template-columns: minmax(0, 620px); }
   .archive-row { grid-template-columns: 130px 1fr 60px; }
   .archive-row h3 { grid-column: 2 / 4; }
   .about { gap: 48px; grid-template-columns: 1fr; }
@@ -320,6 +322,7 @@ footer p, .detail-footer p { font-size: .76rem; letter-spacing: .04em; margin: 0
   .next-season { padding: 38px 26px; }
   .section-shell { padding: 78px 20px; }
   .talk-grid { grid-template-columns: 1fr; }
+  .current-program .talk-grid { grid-template-columns: 1fr; }
   .talk-card { min-height: 340px; }
   .archive { padding-top: 0; }
   .archive-row { gap: 12px; grid-template-columns: 1fr 45px; }
