@@ -169,10 +169,6 @@ const organizers = [
         <strong>7</strong>
         <span>visiting institutions</span>
       </div>
-      <div>
-        <strong>3</strong>
-        <span>meeting formats</span>
-      </div>
     </section>
 
     <section class="program section-shell current-program" id="next" aria-labelledby="next-title">
@@ -199,6 +195,16 @@ const organizers = [
               <p class="affiliation">{event.affiliation}</p>
               <h3>{event.title}</h3>
             </div>
+            <dl class="card-details" aria-label="Meeting details">
+              <div>
+                <dt>Time</dt>
+                <dd>{event.time}</dd>
+              </div>
+              <div>
+                <dt>Location</dt>
+                <dd>{event.location}</dd>
+              </div>
+            </dl>
             <a class="talk-link" href={talkHref(event.slug)}>
               View meeting details <span aria-hidden="true">↗</span>
             </a>

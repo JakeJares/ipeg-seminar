@@ -7,6 +7,7 @@ const talks = new URL("talks/", root);
 
 test("builds the homepage and every archived talk", async () => {
   const homepage = await readFile(new URL("index.html", root), "utf8");
+  const weeklyMeetingDetails = homepage.match(/<dl class="meeting-details"[\s\S]*?<\/dl>/)?.[0];
   assert.match(homepage, /Political economy,/);
   assert.match(homepage, /Interdepartmental Political Economy Community/);
   assert.doesNotMatch(homepage, /\bIPEG\b|Political Economy Group/);
@@ -20,8 +21,9 @@ test("builds the homepage and every archived talk", async () => {
   assert.doesNotMatch(homepage, /forum for anyone interested/);
   assert.doesNotMatch(homepage, /hero-art|hero-monogram|core-ring|secondary-concept/);
   assert.match(homepage, /Thursdays · 12:30–2:00 p\.m\./);
-  assert.match(homepage, /<dt>Location<\/dt>\s*<dd>Announced by meeting<\/dd>/);
-  assert.doesNotMatch(homepage, /meeting-details[\s\S]*Allen 3125[\s\S]*<\/dl>/);
+  assert.ok(weeklyMeetingDetails);
+  assert.match(weeklyMeetingDetails, /<dt>Location<\/dt>\s*<dd>Announced by meeting<\/dd>/);
+  assert.doesNotMatch(weeklyMeetingDetails, /Allen 3125/);
   assert.match(homepage, /There is room here for work in progress/);
   assert.match(homepage, /Earlier program/);
   assert.doesNotMatch(homepage, /The archive begins|A room for work in progress\./);
@@ -50,6 +52,8 @@ test("builds the homepage and every archived talk", async () => {
   assert.match(homepage, /August 27, 2026/);
   assert.match(homepage, /IPEC co-organizers/);
   assert.match(homepage, /href="\/talks\/fall-2026-welcome-meeting\/"/);
+  assert.match(homepage, /<dl class="card-details" aria-label="Meeting details">[\s\S]*<dt>Time<\/dt>[\s\S]*12:30–1:30 p\.m\.[\s\S]*<dt>Location<\/dt>[\s\S]*Allen 3125[\s\S]*<\/dl>/);
+  assert.doesNotMatch(homepage, /meeting formats/);
   assert.match(homepage, /<link rel="canonical" href="https:\/\/ipecseminar\.org\/"/);
 
   const entries = await readdir(talks, { withFileTypes: true });
