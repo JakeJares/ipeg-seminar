@@ -13,8 +13,10 @@ test("builds the homepage and every archived talk", async () => {
   assert.doesNotMatch(homepage, /\bIPEG\b|Political Economy Group/);
   assert.match(homepage, /The Bush School of Government &amp; Public Service · Texas A&amp;M University/);
   assert.match(homepage, /class="hero-lower"/);
+  assert.match(homepage, /class="hero-identity"/);
   assert.match(homepage, /class="hero-practical"/);
-  assert.match(homepage, /IPEC brings together Texas A&amp;M faculty, graduate students, and\s*visiting researchers from across disciplines to share and discuss\s*research on political economy\./);
+  assert.doesNotMatch(homepage, /IPEC brings together Texas A&amp;M faculty/);
+  assert.match(homepage, /Political economy, broadly defined\./);
   assert.doesNotMatch(homepage, /broadly defined—bringing/);
   assert.doesNotMatch(homepage, /Bush School faculty and graduate students/);
   assert.doesNotMatch(homepage, /forum for anyone interested/);

@@ -62,11 +62,12 @@ const organizers = [
           <em>across disciplines.</em>
         </h1>
         <div class="hero-lower">
-          <p class="hero-intro">
-            IPEC brings together Texas A&amp;M faculty, graduate students, and
-            visiting researchers from across disciplines to share and discuss
-            research on political economy.
-          </p>
+          <div class="hero-identity">
+            <img
+              src={`${base}ipec-logo.svg`}
+              alt="IPEC parliamentary chamber and Edgeworth box logo"
+            />
+          </div>
           <div class="hero-practical">
             <dl class="meeting-details" aria-label="Weekly meeting schedule">
               <div>
@@ -89,14 +90,9 @@ const organizers = [
 
     <section class="about section-shell" id="about" aria-label="About IPEC">
       <div class="about-intro">
-        <div class="about-identity-column">
+        <div class="about-label">
           <p class="eyebrow about-heading">About IPEC</p>
-          <div class="about-identity">
-            <img
-              src={`${base}ipec-logo.svg`}
-              alt="IPEC parliamentary chamber and Edgeworth box logo"
-            />
-          </div>
+          <p class="about-definition">Political economy, broadly defined.</p>
         </div>
         <div class="mission-list" aria-label="How IPEC works">
           <article>
