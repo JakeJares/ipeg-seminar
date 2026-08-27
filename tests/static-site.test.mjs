@@ -55,6 +55,10 @@ test("builds the homepage and every archived talk", async () => {
   assert.match(homepage, /<dl class="card-details" aria-label="Meeting details">[\s\S]*<dt>Time<\/dt>[\s\S]*12:30–1:30 p\.m\.[\s\S]*<dt>Location<\/dt>[\s\S]*Allen 3125[\s\S]*<\/dl>/);
   assert.doesNotMatch(homepage, /meeting formats/);
   assert.match(homepage, /<link rel="canonical" href="https:\/\/ipecseminar\.org\/"/);
+  assert.match(homepage, /<link rel="icon" href="\/ipec-favicon\.svg" type="image\/svg\+xml" sizes="any">/);
+  assert.match(homepage, /<img src="\/ipec-logo\.svg" alt="IPEC parliamentary chamber and Edgeworth box logo">/);
+  await access(new URL("ipec-favicon.svg", root));
+  await access(new URL("ipec-logo.svg", root));
 
   const entries = await readdir(talks, { withFileTypes: true });
   const talkDirectories = entries.filter((entry) => entry.isDirectory());

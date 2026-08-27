@@ -29,7 +29,8 @@ const imageUrl = new URL(`${base}og.png`, Astro.site ?? Astro.url).href;
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+    <link rel="icon" href={`${base}ipec-favicon.svg`} type="image/svg+xml" sizes="any" />
+    <link rel="shortcut icon" href={`${base}ipec-favicon.svg`} />
     <title>{pageTitle}</title>
     <meta property="og:type" content="website" />
     <meta property="og:title" content={socialTitle} />
