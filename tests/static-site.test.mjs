@@ -18,6 +18,8 @@ test("builds the homepage and every archived talk", async () => {
   assert.match(homepage, /class="hero-practical"/);
   assert.match(homepage, /class="hero-statement"/);
   assert.match(homepage, /<h2 class="eyebrow about-heading" id="about-heading">About IPEC<\/h2>/);
+  assert.match(homepage, /href="#next">Fall lineup<\/a>/);
+  assert.doesNotMatch(homepage, />How IPEC works<\/a>/);
   assert.doesNotMatch(homepage, /IPEC brings together Texas A&amp;M faculty/);
   assert.match(homepage, /political economy, broadly defined\./);
   assert.doesNotMatch(homepage, /broadly defined—bringing/);
