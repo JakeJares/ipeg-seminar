@@ -12,6 +12,7 @@ test("builds the homepage and every archived talk", async () => {
   assert.match(homepage, /Interdepartmental Political Economy Community/);
   assert.doesNotMatch(homepage, /\bIPEG\b|Political Economy Group/);
   assert.match(homepage, /The Bush School of Government &amp; Public Service · Texas A&amp;M University/);
+  assert.doesNotMatch(homepage, /class="eyebrow hero-institution"/);
   assert.match(homepage, /class="hero-lower"/);
   assert.match(homepage, /class="hero-identity"/);
   assert.match(homepage, /class="hero-practical"/);
