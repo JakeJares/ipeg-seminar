@@ -183,6 +183,36 @@ nav a:hover, .back-link:hover { color: var(--maroon); }
 .talk-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
 .current-program .talk-grid { grid-template-columns: minmax(0, 620px); }
 
+.schedule-row {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 190px minmax(260px, 1fr) 250px 210px;
+  padding: 30px 0;
+}
+.schedule-date { align-items: flex-start; display: flex; flex-direction: column; gap: 12px; }
+.schedule-date time { font-size: .73rem; font-weight: 750; letter-spacing: .055em; text-transform: uppercase; }
+.schedule-kind { border: 1px solid var(--maroon); border-radius: 999px; color: var(--maroon); font-size: .59rem; font-weight: 750; letter-spacing: .1em; padding: 3px 8px; text-transform: uppercase; }
+.schedule-program h3 { font-family: var(--serif); font-size: 1.65rem; font-weight: 700; line-height: 1.05; margin: 0; }
+.schedule-program h3 a { transition: color .2s ease; }
+.schedule-row:hover .schedule-program h3 a { color: var(--maroon); }
+.schedule-program p { color: #5f646a; font-size: .78rem; margin: 7px 0 0; }
+.schedule-program .schedule-speaker { color: var(--ink); font-family: var(--serif); font-size: 1.15rem; font-weight: 700; line-height: 1.1; margin: 0 0 7px; }
+.schedule-row.has-paper-title .schedule-program h3 { font-size: 1.35rem; font-style: italic; font-weight: 400; line-height: 1.22; }
+.schedule-details { display: grid; gap: 20px; grid-template-columns: 1.25fr .75fr; margin: 0; }
+.schedule-details dt { color: var(--maroon); font-size: .59rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+.schedule-details dd { font-family: var(--serif); font-size: .95rem; font-weight: 700; line-height: 1.2; margin: 4px 0 0; }
+.schedule-actions { justify-self: end; min-width: 200px; }
+.schedule-detail-link { color: #5f646a; display: inline-block; font-size: .68rem; font-weight: 700; margin-top: 14px; }
+.schedule-detail-link:hover { color: var(--maroon); }
+
+.calendar-actions { display: flex; flex-direction: column; gap: 6px; }
+.calendar-label { color: var(--maroon); font-size: .59rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+.calendar-options { display: flex; flex-wrap: wrap; gap: 11px; }
+.calendar-options a { border-bottom: 1px solid rgba(23, 28, 34, .42); font-size: .69rem; font-weight: 700; }
+.calendar-options a:hover { border-color: var(--maroon); color: var(--maroon); }
+
 .talk-card {
   background: #e8e1d6;
   display: flex;
@@ -235,6 +265,26 @@ nav a:hover, .back-link:hover { color: var(--maroon); }
 .organizer-title { font-size: .78rem; font-weight: 700; margin-top: 10px; }
 .organizer-department { color: #5f646a; font-size: .75rem; margin-top: 2px; }
 
+.signup-invite {
+  align-items: center;
+  background: #fffdf8;
+  border-left: 4px solid var(--maroon);
+  display: grid;
+  gap: 38px;
+  grid-template-columns: 312px minmax(0, 1fr) auto;
+  margin-top: 78px;
+  padding: 26px 30px;
+  transition: background-color .2s ease, transform .2s ease;
+}
+.signup-invite:hover { background: white; transform: translateY(-2px); }
+.signup-heading { display: flex; flex-direction: column; }
+.signup-heading .eyebrow { margin: 0 0 7px; }
+.signup-heading strong { font-family: var(--serif); font-size: 1.42rem; line-height: 1.1; }
+.signup-copy { color: #4f555b; font-family: var(--serif); font-size: 1.02rem; line-height: 1.45; max-width: 48ch; }
+.signup-action { color: var(--maroon); font-size: .73rem; font-weight: 750; letter-spacing: .03em; white-space: nowrap; }
+.signup-action span { display: inline-block; transition: transform .2s ease; }
+.signup-invite:hover .signup-action span { transform: translate(2px, -2px); }
+
 footer, .detail-footer {
   align-items: end;
   background: var(--ink);
@@ -268,6 +318,12 @@ footer p, .detail-footer p { font-size: .76rem; letter-spacing: .04em; margin: 0
 .detail-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 52px; }
 .detail-links a { border: 1px solid var(--ink); font-size: .76rem; font-weight: 700; padding: 12px 16px; }
 .detail-links a:hover { background: var(--ink); color: white; }
+.detail-note { font-family: var(--serif); font-size: 1.1rem; margin: 18px 0 0; }
+.calendar-actions.detail-calendar { align-items: center; border-top: 1px solid var(--line); flex-direction: row; justify-content: space-between; margin-top: 58px; padding-top: 24px; }
+.detail-calendar .calendar-label { font-size: .67rem; }
+.detail-calendar .calendar-options { gap: 10px; }
+.detail-calendar .calendar-options a { border: 1px solid var(--ink); font-size: .74rem; padding: 10px 13px; }
+.detail-calendar .calendar-options a:hover { background: var(--ink); color: white; }
 .detail-footer { grid-template-columns: 1fr 1fr; }
 .detail-footer > a { color: #edc99c; font-family: var(--serif); font-size: 2rem; font-weight: 700; }
 .detail-footer p { text-align: right; }
@@ -285,12 +341,18 @@ footer p, .detail-footer p { font-size: .76rem; letter-spacing: .04em; margin: 0
   .section-heading { gap: 32px; grid-template-columns: 1fr; }
   .talk-grid { grid-template-columns: 1fr 1fr; }
   .current-program .talk-grid { grid-template-columns: minmax(0, 620px); }
+  .schedule-row { grid-template-columns: 150px minmax(0, 1fr) 240px; }
+  .schedule-actions { align-items: center; display: flex; grid-column: 2 / 4; justify-content: space-between; justify-self: stretch; min-width: 0; }
+  .schedule-actions .calendar-actions { align-items: center; flex-direction: row; gap: 14px; }
+  .schedule-detail-link { margin-top: 0; }
   .archive-row { grid-template-columns: 130px 1fr 60px; }
   .archive-row h3 { grid-column: 2 / 4; }
   .about-intro { column-gap: 0; grid-template-columns: 1fr; }
   .about-label { margin-bottom: 30px; }
   .about-definition { max-width: 54ch; }
   .organizers { grid-template-columns: 250px minmax(0, 1fr); }
+  .signup-invite { grid-template-columns: 250px minmax(0, 1fr); }
+  .signup-action { grid-column: 2; }
   .talk-detail { grid-template-columns: 1fr; }
   .talk-detail-meta { border-bottom: 1px solid var(--line); border-right: 0; padding-bottom: 42px; }
   .talk-detail-meta dl { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); margin-top: 42px; }
@@ -301,6 +363,7 @@ footer p, .detail-footer p { font-size: .76rem; letter-spacing: .04em; margin: 0
   .wordmark-name { display: none; }
   nav { gap: 14px; }
   nav a { font-size: .7rem; }
+  nav a[href="#program"] { display: none; }
   .hero-copy { padding: 52px 20px 58px; }
   .hero-lower { gap: 34px; }
   .hero-identity { min-height: 0; }
@@ -324,6 +387,12 @@ footer p, .detail-footer p { font-size: .76rem; letter-spacing: .04em; margin: 0
   .talk-grid { grid-template-columns: 1fr; }
   .current-program .talk-grid { grid-template-columns: 1fr; }
   .talk-card { min-height: 340px; }
+  .schedule-row { align-items: start; gap: 18px; grid-template-columns: 1fr; padding: 28px 0; }
+  .schedule-date { align-items: center; flex-direction: row; justify-content: space-between; }
+  .schedule-program h3 { font-size: 1.55rem; }
+  .schedule-details { background: rgba(255, 253, 248, .72); padding: 14px; }
+  .schedule-actions { align-items: flex-start; flex-direction: column; gap: 15px; grid-column: auto; }
+  .schedule-actions .calendar-actions { align-items: flex-start; flex-direction: column; gap: 6px; }
   .archive { padding-top: 0; }
   .archive-row { gap: 12px; grid-template-columns: 1fr 45px; }
   .archive-row time, .archive-row div, .archive-row h3 { grid-column: 1; }
@@ -332,12 +401,15 @@ footer p, .detail-footer p { font-size: .76rem; letter-spacing: .04em; margin: 0
   .organizers li { border-top: 1px solid var(--line); }
   .organizers li a { min-height: 124px; padding: 15px 24px 17px 0; }
   .organizers { gap: 18px; grid-template-columns: 1fr; }
+  .signup-invite { gap: 18px; grid-template-columns: 1fr; margin-top: 58px; padding: 24px 22px; }
+  .signup-action { grid-column: auto; }
   footer, .detail-footer { align-items: start; grid-template-columns: 1fr; padding: 44px 20px; }
   .footer-note, .detail-footer p { text-align: left; }
   .talk-detail-meta { padding: 58px 20px 32px; }
   .talk-detail-meta dl { grid-template-columns: 1fr; }
   .talk-detail-main { padding: 62px 20px 80px; }
   .detail-block { gap: 14px; grid-template-columns: 1fr; }
+  .calendar-actions.detail-calendar { align-items: flex-start; flex-direction: column; gap: 13px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

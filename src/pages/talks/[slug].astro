@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import CalendarLinks from "../../components/CalendarLinks.astro";
 import { events, type EventRecord } from "../../data/events";
 
 export function getStaticPaths() {
@@ -16,12 +17,18 @@ interface Props {
 const { event } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const isCommunityMeeting = event.kind === "Community";
-const pageLabel = isCommunityMeeting ? event.title : event.speaker;
-const backHref = isCommunityMeeting ? `${base}#next` : `${base}#program`;
-const backLabel = isCommunityMeeting ? "← Fall 2026 meetings" : "← All talks";
+const isCurrentTerm = event.term === "Fall 2026";
+const pageLabel = isCurrentTerm ? (event.title ?? event.speaker) : event.speaker;
+const backHref = isCurrentTerm ? `${base}#next` : `${base}#program`;
+const backLabel = isCurrentTerm ? "← Fall 2026 meetings" : "← All talks";
+const description = event.title
+  ? isCommunityMeeting
+    ? `${event.title} at the Interdepartmental Political Economy Community.`
+    : `${event.speaker} presents “${event.title}” at IPEC.`
+  : `${event.speaker} at the Interdepartmental Political Economy Community.`;
 ---
 
-<BaseLayout title={pageLabel} description={event.title}>
+<BaseLayout title={pageLabel} description={description}>
   <main class="talk-page">
     <header class="site-header talk-header">
       <a class="wordmark" href={base} aria-label="IPEC home">
@@ -47,9 +54,22 @@ const backLabel = isCommunityMeeting ? "← Fall 2026 meetings" : "← All talks
         </dl>
       </div>
       <div class="talk-detail-main">
-        <p class="detail-speaker">{event.speaker}</p>
-        <p class="detail-affiliation">{event.affiliation}</p>
-        <h1>{event.title}</h1>
+        {event.title ? (
+          <>
+            <p class="detail-speaker">{event.speaker}</p>
+            {event.affiliation && <p class="detail-affiliation">{event.affiliation}</p>}
+            <h1>{event.title}</h1>
+          </>
+        ) : (
+          <>
+            <h1>{event.speaker}</h1>
+            {(event.affiliation || event.note) && (
+              <p class="detail-affiliation detail-note">
+                {event.affiliation ?? event.note}
+              </p>
+            )}
+          </>
+        )}
 
         {event.coauthors && (
           <div class="detail-block">
@@ -58,10 +78,14 @@ const backLabel = isCommunityMeeting ? "← Fall 2026 meetings" : "← All talks
           </div>
         )}
 
-        <div class="detail-block abstract-block">
-          <h2>{isCommunityMeeting ? "About this meeting" : "Abstract"}</h2>
-          <p>{event.abstract ?? "Abstract not available in the seminar archive."}</p>
-        </div>
+        {event.abstract && (
+          <div class="detail-block abstract-block">
+            <h2>{isCommunityMeeting ? "About this meeting" : "Abstract"}</h2>
+            <p>{event.abstract}</p>
+          </div>
+        )}
+
+        <CalendarLinks event={event} className="detail-calendar" />
 
         {(event.speakerUrl || event.paperUrl) && (
           <div class="detail-links" aria-label="Related links">

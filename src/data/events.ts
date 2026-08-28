@@ -1,14 +1,18 @@
 export type EventRecord = {
   slug: string;
   speaker: string;
-  affiliation: string;
-  title: string;
+  affiliation?: string;
+  title?: string;
+  note?: string;
   date: string;
   dateLabel: string;
   term: "Fall 2025" | "Spring 2026" | "Fall 2026";
   kind: "Visiting" | "Internal" | "Community";
   time: string;
   location: string;
+  start?: string;
+  end?: string;
+  calendarTitle?: string;
   abstract?: string;
   coauthors?: string[];
   speakerUrl?: string;
@@ -27,7 +31,87 @@ export const events: EventRecord[] = [
     kind: "Community",
     time: "12:30–1:30 p.m.",
     location: "Allen 3125",
+    start: "2026-08-27T12:30:00-05:00",
+    end: "2026-08-27T13:30:00-05:00",
+    calendarTitle: "IPEC Fall 2026 Welcome Meeting",
     abstract: `An informal opening meeting over lunch for faculty and graduate students interested in political economy. The co-organizers will introduce IPEC's three meeting formats, preview the academic-year program, and invite questions and ideas from the community.`,
+  },
+  {
+    slug: "will-norris-fall-2026",
+    speaker: "Will Norris",
+    date: "2026-09-10",
+    dateLabel: "September 10, 2026",
+    term: "Fall 2026",
+    kind: "Internal",
+    time: "12:30–2:00 p.m.",
+    location: "Allen 3125",
+    start: "2026-09-10T12:30:00-05:00",
+    end: "2026-09-10T14:00:00-05:00",
+  },
+  {
+    slug: "five-minute-fiesta-fall-2026",
+    speaker: "Five-Minute Fiesta",
+    note: "A rapid round of short presentations from the IPEC community",
+    date: "2026-09-24",
+    dateLabel: "September 24, 2026",
+    term: "Fall 2026",
+    kind: "Community",
+    time: "12:30–2:00 p.m.",
+    location: "Allen 3125",
+    start: "2026-09-24T12:30:00-05:00",
+    end: "2026-09-24T14:00:00-05:00",
+  },
+  {
+    slug: "anil-menon-fall-2026",
+    speaker: "Anil Menon",
+    affiliation: "UC Merced",
+    date: "2026-10-01",
+    dateLabel: "October 1, 2026",
+    term: "Fall 2026",
+    kind: "Visiting",
+    time: "12:30–2:00 p.m.",
+    location: "Allen 3125",
+    start: "2026-10-01T12:30:00-05:00",
+    end: "2026-10-01T14:00:00-05:00",
+  },
+  {
+    slug: "jiyeong-jeon-fall-2026",
+    speaker: "Jiyeong Jeon",
+    note: "Practice job talk",
+    date: "2026-10-08",
+    dateLabel: "October 8, 2026",
+    term: "Fall 2026",
+    kind: "Internal",
+    time: "12:30–2:00 p.m.",
+    location: "Allen 3125",
+    start: "2026-10-08T12:30:00-05:00",
+    end: "2026-10-08T14:00:00-05:00",
+  },
+  {
+    slug: "chen-shen-fall-2026",
+    speaker: "Chen Shen",
+    note: "Practice job talk",
+    date: "2026-10-29",
+    dateLabel: "October 29, 2026",
+    term: "Fall 2026",
+    kind: "Internal",
+    time: "12:30–2:00 p.m.",
+    location: "Allen 3125",
+    start: "2026-10-29T12:30:00-05:00",
+    end: "2026-10-29T14:00:00-05:00",
+  },
+  {
+    slug: "kyle-chun-chiang-fall-2026",
+    speaker: "Kyle Chun Chiang",
+    note: "Practice job talk",
+    date: "2026-11-05",
+    dateLabel: "November 5, 2026",
+    term: "Fall 2026",
+    kind: "Internal",
+    time: "12:30–2:00 p.m.",
+    location: "Allen 3125",
+    start: "2026-11-05T12:30:00-06:00",
+    end: "2026-11-05T14:00:00-06:00",
   },
   {
     slug: "cody-tuttle-school-desegregation",

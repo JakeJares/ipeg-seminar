@@ -1,12 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CalendarLinks from "../components/CalendarLinks.astro";
 import { events } from "../data/events";
 
-const currentEvents = events.filter((event) => event.term === "Fall 2026");
+const currentEvents = events
+  .filter((event) => event.term === "Fall 2026")
+  .sort((a, b) => a.date.localeCompare(b.date));
 const springEvents = events.filter((event) => event.term === "Spring 2026");
 const fallEvents = events.filter((event) => event.term === "Fall 2025");
 const base = import.meta.env.BASE_URL;
 const talkHref = (slug: string) => `${base}talks/${slug}/`;
+const signupUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeo4W8PJqWesZmlXiIoQzSWkV3dKT6YgZe_axHrrUYstb4H2Q/viewform";
 const organizers = [
   {
     name: "William Roberts Clark",
@@ -155,19 +159,39 @@ const organizers = [
           ))}
         </ul>
       </div>
+
+      <a
+        class="signup-invite"
+        id="join"
+        href={signupUrl}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span class="signup-heading">
+          <span class="eyebrow">IPEC updates</span>
+          <strong>Stay connected to IPEC.</strong>
+        </span>
+        <span class="signup-copy">
+          Receive seminar announcements and tell us if you would like to
+          present this semester.
+        </span>
+        <span class="signup-action">
+          Open the signup form <span aria-hidden="true">↗</span>
+        </span>
+      </a>
     </section>
 
     <section class="metrics" aria-label="Program at a glance">
       <div>
-        <strong>14</strong>
+        <strong>20</strong>
         <span>talks since Fall 2025</span>
       </div>
       <div>
-        <strong>8</strong>
+        <strong>9</strong>
         <span>visiting speakers</span>
       </div>
       <div>
-        <strong>7</strong>
+        <strong>8</strong>
         <span>visiting institutions</span>
       </div>
     </section>
@@ -179,24 +203,35 @@ const organizers = [
           <h2 id="next-title">Fall 2026</h2>
         </div>
         <p>
-          Confirmed meetings appear here as the internal, visiting-speaker,
-          and reading-group program takes shape.
+          Works in progress, a visiting speaker, practice job talks, and the
+          Five-Minute Fiesta make up this semester’s slate.
         </p>
       </div>
 
-      <div class="talk-grid">
+      <div class="fall-schedule">
         {currentEvents.map((event) => (
-          <article class="talk-card featured">
-            <div class="talk-meta">
+          <article class:list={["schedule-row", { "has-paper-title": event.title }]}>
+            <div class="schedule-date">
               <time datetime={event.date}>{event.dateLabel}</time>
-              <span>{event.kind}</span>
+              <span class="schedule-kind">{event.kind}</span>
             </div>
-            <div class="talk-card-body">
-              <p class="speaker">{event.speaker}</p>
-              <p class="affiliation">{event.affiliation}</p>
-              <h3>{event.title}</h3>
+            <div class="schedule-program">
+              {event.title ? (
+                <>
+                  <p class="schedule-speaker">{event.speaker}</p>
+                  {event.affiliation && <p>{event.affiliation}</p>}
+                  <h3><a href={talkHref(event.slug)}>{event.title}</a></h3>
+                </>
+              ) : (
+                <>
+                  <h3><a href={talkHref(event.slug)}>{event.speaker}</a></h3>
+                  {(event.affiliation || event.note) && (
+                    <p>{event.affiliation ?? event.note}</p>
+                  )}
+                </>
+              )}
             </div>
-            <dl class="card-details" aria-label="Meeting details">
+            <dl class="schedule-details" aria-label="Meeting details">
               <div>
                 <dt>Time</dt>
                 <dd>{event.time}</dd>
@@ -206,9 +241,12 @@ const organizers = [
                 <dd>{event.location}</dd>
               </div>
             </dl>
-            <a class="talk-link" href={talkHref(event.slug)}>
-              View meeting details <span aria-hidden="true">↗</span>
-            </a>
+            <div class="schedule-actions">
+              <CalendarLinks event={event} />
+              <a class="schedule-detail-link" href={talkHref(event.slug)}>
+                Details <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </article>
         ))}
       </div>

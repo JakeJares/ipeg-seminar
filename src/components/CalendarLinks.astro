@@ -1,0 +1,41 @@
+---
+import type { EventRecord } from "../data/events";
+import {
+  getGoogleCalendarUrl,
+  getIcalHref,
+  getOutlookCalendarUrl,
+  hasCalendarInfo,
+} from "../lib/calendar";
+
+interface Props {
+  event: EventRecord;
+  className?: string;
+}
+
+const { event, className } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+{hasCalendarInfo(event) && (
+  <div
+    class:list={["calendar-actions", className]}
+    aria-label={`Add ${event.title ?? event.speaker} to a calendar`}
+  >
+    <span class="calendar-label">Add to calendar</span>
+    <div class="calendar-options">
+      <a
+        href={getGoogleCalendarUrl(event)}
+        target="_blank"
+        rel="noreferrer"
+      >Google <span aria-hidden="true">↗</span></a>
+      <a href={getIcalHref(event, base)} download>
+        iCal <span aria-hidden="true">↓</span>
+      </a>
+      <a
+        href={getOutlookCalendarUrl(event)}
+        target="_blank"
+        rel="noreferrer"
+      >Outlook <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+)}

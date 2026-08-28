@@ -4,6 +4,7 @@ import test from "node:test";
 
 const root = new URL("../dist/", import.meta.url);
 const talks = new URL("talks/", root);
+const calendar = new URL("calendar/", root);
 
 test("builds the homepage and every archived talk", async () => {
   const homepage = await readFile(new URL("index.html", root), "utf8");
@@ -59,7 +60,35 @@ test("builds the homepage and every archived talk", async () => {
   assert.match(homepage, /August 27, 2026/);
   assert.match(homepage, /IPEC co-organizers/);
   assert.match(homepage, /href="\/talks\/fall-2026-welcome-meeting\/"/);
-  assert.match(homepage, /<dl class="card-details" aria-label="Meeting details">[\s\S]*<dt>Time<\/dt>[\s\S]*12:30–1:30 p\.m\.[\s\S]*<dt>Location<\/dt>[\s\S]*Allen 3125[\s\S]*<\/dl>/);
+  assert.match(homepage, /<dl class="schedule-details" aria-label="Meeting details">[\s\S]*<dt>Time<\/dt>[\s\S]*12:30–1:30 p\.m\.[\s\S]*<dt>Location<\/dt>[\s\S]*Allen 3125[\s\S]*<\/dl>/);
+  for (const meeting of [
+    "Will Norris",
+    "Five-Minute Fiesta",
+    "Anil Menon",
+    "Jiyeong Jeon",
+    "Chen Shen",
+    "Kyle Chun Chiang",
+  ]) {
+    assert.match(homepage, new RegExp(meeting));
+  }
+  for (const date of [
+    "September 10, 2026",
+    "September 24, 2026",
+    "October 1, 2026",
+    "October 8, 2026",
+    "October 29, 2026",
+    "November 5, 2026",
+  ]) {
+    assert.match(homepage, new RegExp(date));
+  }
+  assert.doesNotMatch(homepage, /\bTBD\b/);
+  assert.match(homepage, /Stay connected to IPEC\./);
+  assert.match(homepage, /Open the signup form/);
+  assert.match(homepage, /docs\.google\.com\/forms\/d\/e\/1FAIpQLSeo4W8PJqWesZmlXiIoQzSWkV3dKT6YgZe_axHrrUYstb4H2Q\/viewform/);
+  assert.equal(homepage.match(/class="calendar-actions"/g)?.length, 7);
+  assert.match(homepage, /dates=20260910T173000Z%2F20260910T190000Z/);
+  assert.match(homepage, /startdt=2026-11-05T18%3A30%3A00\.000Z/);
+  assert.match(homepage, /href="\/calendar\/kyle-chun-chiang-fall-2026\.ics" download/);
   assert.doesNotMatch(homepage, /meeting formats/);
   assert.match(homepage, /<link rel="canonical" href="https:\/\/ipecseminar\.org\/"/);
   assert.match(homepage, /<link rel="icon" href="\/ipec-favicon\.svg" type="image\/svg\+xml" sizes="any">/);
@@ -69,7 +98,7 @@ test("builds the homepage and every archived talk", async () => {
 
   const entries = await readdir(talks, { withFileTypes: true });
   const talkDirectories = entries.filter((entry) => entry.isDirectory());
-  assert.equal(talkDirectories.length, 15);
+  assert.equal(talkDirectories.length, 21);
 
   const welcomeMeeting = await readFile(
     new URL("talks/fall-2026-welcome-meeting/index.html", root),
@@ -94,6 +123,20 @@ test("builds the homepage and every archived talk", async () => {
 
   for (const entry of talkDirectories) {
     await access(new URL(`${entry.name}/index.html`, talks));
+  }
+
+  const calendarEntries = (await readdir(calendar)).filter((name) => name.endsWith(".ics"));
+  assert.equal(calendarEntries.length, 7);
+  const standardTimeEvent = await readFile(
+    new URL("kyle-chun-chiang-fall-2026.ics", calendar),
+    "utf8",
+  );
+  assert.match(standardTimeEvent, /DTSTART:20261105T183000Z/);
+  assert.match(standardTimeEvent, /DTEND:20261105T200000Z/);
+  assert.match(standardTimeEvent, /SUMMARY:IPEC: Kyle Chun Chiang/);
+  assert.match(standardTimeEvent, /LOCATION:Allen 3125/);
+  for (const line of standardTimeEvent.split("\r\n")) {
+    assert.ok(line.length <= 75, `iCalendar line is too long: ${line}`);
   }
 });
 
