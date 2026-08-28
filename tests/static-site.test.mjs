@@ -29,8 +29,8 @@ test("builds the homepage and every archived talk", async () => {
   assert.doesNotMatch(homepage, /hero-art|hero-monogram|core-ring|secondary-concept/);
   assert.match(homepage, /Thursdays · 12:30–2:00 p\.m\./);
   assert.ok(weeklyMeetingDetails);
-  assert.match(weeklyMeetingDetails, /<dt>Location<\/dt>\s*<dd>Usually Allen 3025; see the schedule below<\/dd>/);
-  assert.doesNotMatch(weeklyMeetingDetails, /Allen 3125/);
+  assert.match(weeklyMeetingDetails, /<dt>Location<\/dt>\s*<dd>Usually Allen 3125; see the schedule below<\/dd>/);
+  assert.doesNotMatch(weeklyMeetingDetails, /Allen 3025/);
   assert.match(homepage, /IPEC is an interdisciplinary forum for Texas A&amp;M faculty and\s*graduate students who study political economy, broadly defined\./);
   assert.match(homepage, /There is room here for work in progress, visiting speakers, and\s*reading and discussion\./);
   assert.match(homepage, /Earlier program/);
