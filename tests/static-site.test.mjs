@@ -58,7 +58,7 @@ test("builds the homepage and every archived talk", async () => {
   assert.doesNotMatch(homepage, /meeting formats/);
   assert.match(homepage, /<link rel="canonical" href="https:\/\/ipecseminar\.org\/"/);
   assert.match(homepage, /<link rel="icon" href="\/ipec-favicon\.svg" type="image\/svg\+xml" sizes="any">/);
-  assert.match(homepage, /<img src="\/ipec-logo\.svg" alt="IPEC parliamentary chamber and Edgeworth box logo">/);
+  assert.match(homepage, /<img src="\/ipec-logo\.svg" alt="IPEC — Interdepartmental Political Economy Community">/);
   await access(new URL("ipec-favicon.svg", root));
   await access(new URL("ipec-logo.svg", root));
 
