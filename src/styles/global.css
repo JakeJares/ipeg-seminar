@@ -369,6 +369,7 @@ footer p, .detail-footer p { font-size: .76rem; letter-spacing: .04em; margin: 0
   .hero-lower { gap: 34px; }
   .hero-identity { min-height: 0; }
   .hero-identity picture { max-width: 330px; }
+  .hero-actions .button { padding-left: 14px; padding-right: 14px; }
   .meeting-details { grid-template-columns: 1fr; }
   .meeting-details div { padding: 14px 0; }
   .meeting-details div + div { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
