@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 48 640 375" width="640" height="375">
+<title>Interdepartmental Political Economy Community</title>
+<defs>
+  <path id="mobile-name-arc" d="M32,400 A308,308 0 0 1 648,400"/>
+</defs>
+
+<path d="M58,400 A282,282 0 0 1 622,400" fill="none" stroke="#2B2620" stroke-width="1"/>
+<circle cx="125.0" cy="400.0" r="13" fill="#BF5700"/>
+<circle cx="127.6" cy="366.4" r="13" fill="#BF5700"/>
+<circle cx="135.5" cy="333.6" r="13" fill="#BF5700"/>
+<circle cx="148.4" cy="302.4" r="13" fill="#BF5700"/>
+<circle cx="166.1" cy="273.6" r="13" fill="#BF5700"/>
+<circle cx="188.0" cy="248.0" r="13" fill="#BF5700"/>
+<circle cx="213.6" cy="226.1" r="13" fill="#BF5700"/>
+<circle cx="242.4" cy="208.4" r="13" fill="#BF5700"/>
+<circle cx="273.6" cy="195.5" r="13" fill="#500000"/>
+<circle cx="306.4" cy="187.6" r="13" fill="#500000"/>
+<circle cx="340.0" cy="185.0" r="13" fill="#500000"/>
+<circle cx="373.6" cy="187.6" r="13" fill="#500000"/>
+<circle cx="406.4" cy="195.5" r="13" fill="#500000"/>
+<circle cx="437.6" cy="208.4" r="13" fill="#500000"/>
+<circle cx="466.4" cy="226.1" r="13" fill="#500000"/>
+<circle cx="492.0" cy="248.0" r="13" fill="#500000"/>
+<circle cx="513.9" cy="273.6" r="13" fill="#500000"/>
+<circle cx="531.6" cy="302.4" r="13" fill="#500000"/>
+<circle cx="544.5" cy="333.6" r="13" fill="#500000"/>
+<circle cx="552.4" cy="366.4" r="13" fill="#500000"/>
+<circle cx="555.0" cy="400.0" r="13" fill="#500000"/>
+<circle cx="82.0" cy="400.0" r="13" fill="#BF5700"/>
+<circle cx="84.2" cy="366.3" r="13" fill="#BF5700"/>
+<circle cx="90.8" cy="333.2" r="13" fill="#BF5700"/>
+<circle cx="101.6" cy="301.3" r="13" fill="#BF5700"/>
+<circle cx="116.6" cy="271.0" r="13" fill="#BF5700"/>
+<circle cx="135.3" cy="242.9" r="13" fill="#BF5700"/>
+<circle cx="157.6" cy="217.6" r="13" fill="#BF5700"/>
+<circle cx="182.9" cy="195.3" r="13" fill="#BF5700"/>
+<circle cx="211.0" cy="176.6" r="13" fill="#BF5700"/>
+<circle cx="241.3" cy="161.6" r="13" fill="#BF5700"/>
+<circle cx="273.2" cy="150.8" r="13" fill="#500000"/>
+<circle cx="306.3" cy="144.2" r="13" fill="#500000"/>
+<circle cx="340.0" cy="142.0" r="13" fill="#500000"/>
+<circle cx="373.7" cy="144.2" r="13" fill="#500000"/>
+<circle cx="406.8" cy="150.8" r="13" fill="#500000"/>
+<circle cx="438.7" cy="161.6" r="13" fill="#500000"/>
+<circle cx="469.0" cy="176.6" r="13" fill="#500000"/>
+<circle cx="497.1" cy="195.3" r="13" fill="#500000"/>
+<circle cx="522.4" cy="217.6" r="13" fill="#500000"/>
+<circle cx="544.7" cy="242.9" r="13" fill="#500000"/>
+<circle cx="563.4" cy="271.0" r="13" fill="#500000"/>
+<circle cx="578.4" cy="301.3" r="13" fill="#500000"/>
+<circle cx="589.2" cy="333.2" r="13" fill="#500000"/>
+<circle cx="595.8" cy="366.3" r="13" fill="#500000"/>
+<circle cx="598.0" cy="400.0" r="13" fill="#500000"/>
+<rect x="225.0" y="250" width="230" height="150" fill="none" stroke="#2B2620" stroke-width="1.25"/>
+<path d="M225.0,400.0 C328.5,391.0 351.5,259.0 455.0,250.0" fill="none" stroke="#2B2620" stroke-width="4"/>
+<path d="M296.5,368.9 C312.2,356.0 326.1,340.5 340.0,325.0" fill="none" stroke="#500000" stroke-width="4.5"/>
+<circle cx="296.5" cy="368.9" r="7" fill="#F4EEE1" stroke="#BF5700" stroke-width="3.5"/>
+<circle cx="340.0" cy="325.0" r="8" fill="#500000"/>
+<text font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" letter-spacing="1.75" fill="#2B2620"><textPath href="#mobile-name-arc" startOffset="50%" text-anchor="middle">INTERDEPARTMENTAL POLITICAL ECONOMY COMMUNITY</textPath></text>
+</svg>

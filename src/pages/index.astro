@@ -61,10 +61,13 @@ const organizers = [
       <div class="hero-copy">
         <div class="hero-lower">
           <h1 class="hero-identity" id="hero-title">
-            <img
-              src={`${base}ipec-logo.svg`}
-              alt="IPEC — Interdepartmental Political Economy Community"
-            />
+            <picture>
+              <source media="(max-width: 680px)" srcset={`${base}ipec-logo-mobile.svg`} />
+              <img
+                src={`${base}ipec-logo.svg`}
+                alt="IPEC — Interdepartmental Political Economy Community"
+              />
+            </picture>
           </h1>
           <div class="hero-practical">
             <p class="hero-statement">

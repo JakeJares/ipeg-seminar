@@ -97,9 +97,18 @@ test("builds the homepage and every archived talk", async () => {
   assert.doesNotMatch(homepage, /meeting formats/);
   assert.match(homepage, /<link rel="canonical" href="https:\/\/ipecseminar\.org\/"/);
   assert.match(homepage, /<link rel="icon" href="\/ipec-favicon\.svg" type="image\/svg\+xml" sizes="any">/);
+  assert.match(homepage, /<source media="\(max-width: 680px\)" srcset="\/ipec-logo-mobile\.svg">/);
   assert.match(homepage, /<img src="\/ipec-logo\.svg" alt="IPEC — Interdepartmental Political Economy Community">/);
   await access(new URL("ipec-favicon.svg", root));
   await access(new URL("ipec-logo.svg", root));
+  await access(new URL("ipec-logo-mobile.svg", root));
+
+  const mobileLogo = await readFile(new URL("ipec-logo-mobile.svg", root), "utf8");
+  assert.match(mobileLogo, /INTERDEPARTMENTAL POLITICAL ECONOMY COMMUNITY/);
+  assert.match(mobileLogo, /fill="#500000"/);
+  assert.match(mobileLogo, /fill="#BF5700"/);
+  assert.match(mobileLogo, /stroke="#2B2620"/);
+  assert.doesNotMatch(mobileLogo, />IPEC<\/text>/);
 
   const entries = await readdir(talks, { withFileTypes: true });
   const talkDirectories = entries.filter((entry) => entry.isDirectory());
