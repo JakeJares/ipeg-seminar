@@ -229,7 +229,7 @@ nav a:hover, .back-link:hover { color: var(--maroon); }
 .about { border-top: 1px solid var(--ink); }
 .about-intro { column-gap: 38px; display: grid; grid-template-columns: 350px minmax(0, 1fr); }
 .about-heading { margin-bottom: 18px; }
-.about-definition { font-family: var(--serif); font-size: 1.45rem; line-height: 1.25; margin: 0; max-width: 13ch; }
+.about-definition { font-family: var(--serif); font-size: 1.18rem; line-height: 1.5; margin: 0; max-width: 29ch; }
 .mission-list { border-top: 1px solid var(--ink); }
 .mission-list article { border-bottom: 1px solid var(--line); display: grid; gap: 22px; grid-template-columns: 42px minmax(0, 1fr); padding: 25px 0; }
 .mission-list article > span { color: var(--maroon); font-family: var(--serif); font-size: .82rem; font-style: italic; }

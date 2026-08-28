@@ -16,7 +16,7 @@ test("builds the homepage and every archived talk", async () => {
   assert.match(homepage, /class="hero-identity"/);
   assert.match(homepage, /class="hero-practical"/);
   assert.doesNotMatch(homepage, /IPEC brings together Texas A&amp;M faculty/);
-  assert.match(homepage, /Political economy, broadly defined\./);
+  assert.match(homepage, /political economy, broadly defined\./);
   assert.doesNotMatch(homepage, /broadly defined—bringing/);
   assert.doesNotMatch(homepage, /Bush School faculty and graduate students/);
   assert.doesNotMatch(homepage, /forum for anyone interested/);
@@ -25,8 +25,8 @@ test("builds the homepage and every archived talk", async () => {
   assert.ok(weeklyMeetingDetails);
   assert.match(weeklyMeetingDetails, /<dt>Location<\/dt>\s*<dd>Usually Allen 3025; see the schedule below<\/dd>/);
   assert.doesNotMatch(weeklyMeetingDetails, /Allen 3125/);
-  assert.doesNotMatch(homepage, /There is room here for work in progress/);
-  assert.doesNotMatch(homepage, /IPEC is an interdisciplinary forum/);
+  assert.match(homepage, /IPEC is an interdisciplinary forum for Texas A&amp;M faculty and\s*graduate students who study political economy, broadly defined\./);
+  assert.match(homepage, /There is room here for work in progress, visiting speakers, and\s*reading and discussion\./);
   assert.match(homepage, /Earlier program/);
   assert.doesNotMatch(homepage, /The archive begins|A room for work in progress\./);
   assert.ok(homepage.indexOf('id="about"') < homepage.indexOf('class="metrics"'));
