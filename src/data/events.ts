@@ -70,7 +70,7 @@ export const events: EventRecord[] = [
     term: "Fall 2026",
     kind: "Visiting",
     time: "12:30–2:00 p.m.",
-    location: "Allen 3125",
+    location: "TBD",
     start: "2026-10-01T12:30:00-05:00",
     end: "2026-10-01T14:00:00-05:00",
   },

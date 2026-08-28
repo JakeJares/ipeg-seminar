@@ -81,11 +81,16 @@ test("builds the homepage and every archived talk", async () => {
   ]) {
     assert.match(homepage, new RegExp(date));
   }
-  assert.doesNotMatch(homepage, /\bTBD\b/);
+  assert.doesNotMatch(homepage, /Paper title:\s*TBD|Title:\s*TBD/);
   assert.match(homepage, /Stay connected to IPEC\./);
   assert.match(homepage, /Open the signup form/);
   assert.match(homepage, /docs\.google\.com\/forms\/d\/e\/1FAIpQLSeo4W8PJqWesZmlXiIoQzSWkV3dKT6YgZe_axHrrUYstb4H2Q\/viewform/);
   assert.equal(homepage.match(/class="calendar-actions"/g)?.length, 7);
+  const scheduleRows = homepage.match(/<article class="schedule-row(?: [^"]*)?">[\s\S]*?<\/article>/g) ?? [];
+  const anilRow = scheduleRows.find((row) => row.includes("Anil Menon"));
+  assert.ok(anilRow);
+  assert.match(anilRow, /<dt>Location<\/dt><dd>TBD<\/dd>/);
+  assert.doesNotMatch(anilRow, /Allen 3125/);
   assert.match(homepage, /dates=20260910T173000Z%2F20260910T190000Z/);
   assert.match(homepage, /startdt=2026-11-05T18%3A30%3A00\.000Z/);
   assert.match(homepage, /href="\/calendar\/kyle-chun-chiang-fall-2026\.ics" download/);
@@ -138,6 +143,11 @@ test("builds the homepage and every archived talk", async () => {
   for (const line of standardTimeEvent.split("\r\n")) {
     assert.ok(line.length <= 75, `iCalendar line is too long: ${line}`);
   }
+  const anilCalendar = await readFile(
+    new URL("anil-menon-fall-2026.ics", calendar),
+    "utf8",
+  );
+  assert.match(anilCalendar, /LOCATION:TBD/);
 });
 
 test("produces portable public pages with no preview-host references", async () => {
