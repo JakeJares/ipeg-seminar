@@ -115,6 +115,9 @@ nav a:hover, .back-link:hover { color: var(--maroon); }
 .hero-identity img { display: block; height: auto; max-width: 500px; width: min(100%, 500px); }
 
 .hero-practical { align-self: end; max-width: 596px; padding-bottom: 8px; width: 100%; }
+.hero-statement { font-family: var(--serif); font-size: clamp(2.3rem, 2.7vw, 2.65rem); font-weight: 400; letter-spacing: -.04em; line-height: 1.02; margin: 0 0 44px; }
+.hero-statement span, .hero-statement em { display: block; }
+.hero-statement em { color: var(--maroon); font-weight: 400; }
 
 .meeting-details { border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); display: grid; grid-template-columns: 1.08fr .92fr; margin: 0; }
 .meeting-details div { padding: 15px 18px 16px 0; }
@@ -213,8 +216,6 @@ nav a:hover, .back-link:hover { color: var(--maroon); }
 .archive-row > a { font-size: .75rem; font-weight: 700; }
 
 .about { padding-top: 56px; }
-.about-statement { font-family: var(--serif); font-size: clamp(2.3rem, 2.7vw, 2.65rem); font-weight: 400; letter-spacing: -.04em; line-height: 1.02; margin: 0 0 50px; }
-.about-statement em { color: var(--maroon); font-weight: 400; }
 .about-intro { column-gap: 38px; display: grid; grid-template-columns: 350px minmax(0, 1fr); }
 .about-heading { margin-bottom: 18px; }
 .about-definition, .organizers-note { color: #4f555b; font-family: var(--serif); font-size: 1.06rem; line-height: 1.52; margin: 0; max-width: 30ch; }
@@ -315,7 +316,7 @@ footer p, .detail-footer p { font-size: .76rem; letter-spacing: .04em; margin: 0
   .next-season { padding: 38px 26px; }
   .section-shell { padding: 78px 20px; }
   .about { padding-top: 54px; }
-  .about-statement { font-size: clamp(2.2rem, 9.6vw, 2.75rem); margin-bottom: 40px; }
+  .hero-statement { font-size: clamp(2.2rem, 9.6vw, 2.75rem); margin-bottom: 34px; }
   .talk-grid { grid-template-columns: 1fr; }
   .current-program .talk-grid { grid-template-columns: 1fr; }
   .talk-card { min-height: 340px; }
