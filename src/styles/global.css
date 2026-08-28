@@ -365,7 +365,7 @@ footer p, .detail-footer p { font-size: .76rem; letter-spacing: .04em; margin: 0
   nav { gap: 14px; }
   nav a { font-size: .7rem; }
   nav a[href="#program"] { display: none; }
-  .hero-copy { padding: 52px 20px 58px; }
+  .hero-copy { padding: 40px 20px 58px; }
   .hero-lower { gap: 34px; }
   .hero-identity { min-height: 0; }
   .hero-identity picture { max-width: 330px; }
