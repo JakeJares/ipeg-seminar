@@ -87,10 +87,11 @@ const description = event.title
 
         <CalendarLinks event={event} className="detail-calendar" />
 
-        {(event.speakerUrl || event.paperUrl) && (
+        {(event.speakerUrl || event.paperUrl || event.projectUrl) && (
           <div class="detail-links" aria-label="Related links">
             {event.speakerUrl && <a href={event.speakerUrl}>Speaker website ↗</a>}
             {event.paperUrl && <a href={event.paperUrl}>Paper ↗</a>}
+            {event.projectUrl && <a href={event.projectUrl}>Interactive explorer ↗</a>}
           </div>
         )}
       </div>

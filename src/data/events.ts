@@ -17,6 +17,7 @@ export type EventRecord = {
   coauthors?: string[];
   speakerUrl?: string;
   paperUrl?: string;
+  projectUrl?: string;
 };
 
 export const events: EventRecord[] = [
@@ -86,6 +87,25 @@ export const events: EventRecord[] = [
     location: "Allen 3125",
     start: "2026-10-08T12:30:00-05:00",
     end: "2026-10-08T14:00:00-05:00",
+  },
+  {
+    slug: "yunus-aybas-fall-2026",
+    speaker: "Yunus C. Aybas",
+    affiliation: "Texas A&M University · Economics",
+    title: "Representation in District-Based Elections",
+    date: "2026-10-22",
+    dateLabel: "October 22, 2026",
+    term: "Fall 2026",
+    kind: "Internal",
+    time: "12:30–2:00 p.m.",
+    location: "TBD",
+    start: "2026-10-22T12:30:00-05:00",
+    end: "2026-10-22T14:00:00-05:00",
+    coauthors: ["Oguzhan Celebi", "Surabhi Dutt"],
+    speakerUrl: "https://www.yunusaybas.com/",
+    paperUrl: "https://drive.google.com/file/d/1lGinlMF8TiZx1wEAuEEwgNYEI-z4Ip7o/view",
+    projectUrl: "https://representation.yunusaybas.com/",
+    abstract: `District-based elections must reconcile representing each district's electorate with matching a statewide delegation to overall political support. The paper characterizes a family of optimal seat-allocation rules spanning first-past-the-post and proportional representation, shows how greater weight on statewide representation makes gerrymandering more difficult, and applies the framework to U.S. House elections from 2002 to 2024.`,
   },
   {
     slug: "chen-shen-fall-2026",

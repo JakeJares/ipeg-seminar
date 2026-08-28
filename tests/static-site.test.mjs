@@ -67,6 +67,7 @@ test("builds the homepage and every archived talk", async () => {
     "Five-Minute Fiesta",
     "Anil Menon",
     "Jiyeong Jeon",
+    "Yunus C. Aybas",
     "Chen Shen",
     "Kyle Chun Chiang",
   ]) {
@@ -77,6 +78,7 @@ test("builds the homepage and every archived talk", async () => {
     "September 24, 2026",
     "October 1, 2026",
     "October 8, 2026",
+    "October 22, 2026",
     "October 29, 2026",
     "November 5, 2026",
   ]) {
@@ -86,12 +88,18 @@ test("builds the homepage and every archived talk", async () => {
   assert.match(homepage, /Stay connected to IPEC\./);
   assert.match(homepage, /Open the signup form/);
   assert.match(homepage, /docs\.google\.com\/forms\/d\/e\/1FAIpQLSeo4W8PJqWesZmlXiIoQzSWkV3dKT6YgZe_axHrrUYstb4H2Q\/viewform/);
-  assert.equal(homepage.match(/class="calendar-actions"/g)?.length, 7);
+  assert.equal(homepage.match(/class="calendar-actions"/g)?.length, 8);
   const scheduleRows = homepage.match(/<article class="schedule-row(?: [^"]*)?">[\s\S]*?<\/article>/g) ?? [];
   const anilRow = scheduleRows.find((row) => row.includes("Anil Menon"));
   assert.ok(anilRow);
   assert.match(anilRow, /<dt>Location<\/dt><dd>TBD<\/dd>/);
   assert.doesNotMatch(anilRow, /Allen 3125/);
+  const yunusRow = scheduleRows.find((row) => row.includes("Yunus C. Aybas"));
+  assert.ok(yunusRow);
+  assert.match(yunusRow, /Representation in District-Based Elections/);
+  assert.match(yunusRow, /Texas A&amp;M University · Economics/);
+  assert.match(yunusRow, /<dt>Location<\/dt><dd>TBD<\/dd>/);
+  assert.doesNotMatch(yunusRow, /Allen 3125/);
   assert.match(homepage, /dates=20260910T173000Z%2F20260910T190000Z/);
   assert.match(homepage, /startdt=2026-11-05T18%3A30%3A00\.000Z/);
   assert.match(homepage, /href="\/calendar\/kyle-chun-chiang-fall-2026\.ics" download/);
@@ -113,7 +121,7 @@ test("builds the homepage and every archived talk", async () => {
 
   const entries = await readdir(talks, { withFileTypes: true });
   const talkDirectories = entries.filter((entry) => entry.isDirectory());
-  assert.equal(talkDirectories.length, 21);
+  assert.equal(talkDirectories.length, 22);
 
   const welcomeMeeting = await readFile(
     new URL("talks/fall-2026-welcome-meeting/index.html", root),
@@ -136,12 +144,26 @@ test("builds the homepage and every archived talk", async () => {
   assert.match(addedTalk, /4:00 p\.m\./);
   assert.match(addedTalk, /Allen 3072/);
 
+  const yunusTalk = await readFile(
+    new URL("talks/yunus-aybas-fall-2026/index.html", root),
+    "utf8",
+  );
+  assert.match(yunusTalk, /Yunus C\. Aybas/);
+  assert.match(yunusTalk, /Representation in District-Based Elections/);
+  assert.match(yunusTalk, /October 22, 2026/);
+  assert.match(yunusTalk, /12:30–2:00 p\.m\./);
+  assert.match(yunusTalk, /<dt>Location<\/dt><dd>TBD<\/dd>/);
+  assert.match(yunusTalk, /Oguzhan Celebi, Surabhi Dutt/);
+  assert.match(yunusTalk, /Interactive explorer/);
+  assert.match(yunusTalk, /representation\.yunusaybas\.com/);
+  assert.match(yunusTalk, /drive\.google\.com\/file\/d\/1lGinlMF8TiZx1wEAuEEwgNYEI-z4Ip7o\/view/);
+
   for (const entry of talkDirectories) {
     await access(new URL(`${entry.name}/index.html`, talks));
   }
 
   const calendarEntries = (await readdir(calendar)).filter((name) => name.endsWith(".ics"));
-  assert.equal(calendarEntries.length, 7);
+  assert.equal(calendarEntries.length, 8);
   const standardTimeEvent = await readFile(
     new URL("kyle-chun-chiang-fall-2026.ics", calendar),
     "utf8",
@@ -158,6 +180,14 @@ test("builds the homepage and every archived talk", async () => {
     "utf8",
   );
   assert.match(anilCalendar, /LOCATION:TBD/);
+  const yunusCalendar = await readFile(
+    new URL("yunus-aybas-fall-2026.ics", calendar),
+    "utf8",
+  );
+  assert.match(yunusCalendar, /DTSTART:20261022T173000Z/);
+  assert.match(yunusCalendar, /DTEND:20261022T190000Z/);
+  assert.match(yunusCalendar, /SUMMARY:IPEC: Yunus C\. Aybas — Representation in District-Based Elections/);
+  assert.match(yunusCalendar, /LOCATION:TBD/);
 });
 
 test("produces portable public pages with no preview-host references", async () => {
