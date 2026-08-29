@@ -154,6 +154,11 @@ test("builds the homepage and every archived talk", async () => {
   assert.match(yunusTalk, /12:30–2:00 p\.m\./);
   assert.match(yunusTalk, /<dt>Location<\/dt><dd>TBD<\/dd>/);
   assert.match(yunusTalk, /Oguzhan Celebi, Surabhi Dutt/);
+  assert.match(yunusTalk, /must reconcile two objectives/);
+  assert.match(yunusTalk, /optimal rule is characterized by an endogenous cutoff/);
+  assert.match(yunusTalk, /Republican-legislature maps fare worse on average/);
+  assert.match(yunusTalk, /considerably amplifies the Republican–Democratic asymmetry/);
+  assert.doesNotMatch(yunusTalk, /characterizes a family of optimal seat-allocation rules spanning/);
   assert.match(yunusTalk, /Interactive explorer/);
   assert.match(yunusTalk, /representation\.yunusaybas\.com/);
   assert.match(yunusTalk, /drive\.google\.com\/file\/d\/1lGinlMF8TiZx1wEAuEEwgNYEI-z4Ip7o\/view/);
